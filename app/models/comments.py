@@ -10,3 +10,4 @@ class Comment(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
 
     user = db.relationship("User", back_populate="comment")
+    project = db.relationship("Step", back_populate="comments")

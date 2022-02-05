@@ -8,3 +8,7 @@ class Step(db.Model):
     title = db.Column(db.String(100), nullable=False)
     body = db.Column(db.String(255), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
+
+
+    medias = db.relationship("Media", back_populate="step")
+    project = db.relationship("Project", back_populate="steps")
