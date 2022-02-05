@@ -8,3 +8,6 @@ class Media(db.Model):
     media_url = db.Column(db.String(255))
     step_id = db.Column(db.Integer, db.ForeignKey("steps.id"), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
+
+    step = db.relationship("Step", back_populate="medias")
+    project = db.relationship("Project", back_populate="medias")
