@@ -14,3 +14,13 @@ class Project(db.Model):
     steps = db.relationship("Step", back_populates="project")
     comments = db.relationship("Comment", back_populates="project")
     medias = db.relationship("Media", back_populates="project")
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "description": self.description,
+            "media_url": self.media_url,
+            "user_id": self.user_id
+        }
