@@ -16,7 +16,7 @@ nav {
     font-size: 14px;
     line-height: 20px;
 
-    font-family: Helvetica;
+    font-family: "myriad-pro", Helvetica, Arial, sans-serif;
 }
 
 .nav-top-options {
@@ -31,7 +31,6 @@ nav {
 }
 
 .nav-top-options li {
-
     padding-left: 10px;
 }
 
@@ -45,5 +44,32 @@ nav {
 .nav-bottom-options {
     width: 100%;
     height: 89px;
-    background-color: #eee
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    font-size: 22px;
+}
+
+.nav-bottom-left {
+    display: flex;
+    list-style: none;
+    font-family: "myriad-pro", Helvetica, Arial, sans-serif;
+    margin-right: 15px;
+    margin-left: 5px;
+    color: #000;
+}
+
+.site-name {
+    font-weight: 700;
+}
+
+.nav-bottom-left li {
+    padding-left: 10px;
+}
+
+.nav-bottom-right {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
 }
