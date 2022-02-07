@@ -11,3 +11,12 @@ class Media(db.Model):
 
     step = db.relationship("Step", back_populates="medias")
     project = db.relationship("Project", back_populates="medias")
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "media_url": self.media_url,
+            "step_id": self.step_id,
+            "project_id": self.project_id
+        }
