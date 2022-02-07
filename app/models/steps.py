@@ -10,5 +10,5 @@ class Step(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
 
 
-    medias = db.relationship("Media", back_populate="step")
-    project = db.relationship("Project", back_populate="steps")
+    medias = db.relationship("Media", back_populates="step")
+    project = db.relationship("Project", back_populates="steps")
