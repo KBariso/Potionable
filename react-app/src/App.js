@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import UploadPicture from './file_upload/UploadPicture';
 import ViewImages from './file_upload/ViewImages';
+import SingleProjectPage from './components/SingleProjectPage'
 import { authenticate } from './store/session';
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
         <Route path='/images' exact={true}>
           <ViewImages />
         </Route>
+        <Route path="/projects/:projectId">
+          <SingleProjectPage />
+          </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
