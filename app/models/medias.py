@@ -10,7 +10,7 @@ class Media(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
 
     step = db.relationship("Step", back_populates="medias")
-    project = db.relationship("Project", back_populates="medias")
+    projects = db.relationship("Project", back_populates="medias")
 
 
     def to_dict(self):

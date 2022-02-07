@@ -10,10 +10,10 @@ class Project(db.Model):
     media_url = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    user = db.relationship("User", back_populates="project")
-    steps = db.relationship("Step", back_populates="project")
-    comments = db.relationship("Comment", back_populates="project")
-    medias = db.relationship("Media", back_populates="project")
+    user = db.relationship("User", back_populates="projects")
+    steps = db.relationship("Step", back_populates="projects")
+    comments = db.relationship("Comment", back_populates="projects")
+    medias = db.relationship("Media", back_populates="projects")
 
 
     def to_dict(self):
