@@ -11,8 +11,8 @@ class User(db.Model, UserMixin):        #Usermixin allows us to use the current 
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)             #Becuase we store the hashed version of their password into the database.
 
-    project = db.relationship("Project", back_populate="user")
-    comment = db.relationship("Comment", back_populate="user")
+    project = db.relationship("Project", back_populates="user")
+    comment = db.relationship("Comment", back_populates="user")
 
 
 
