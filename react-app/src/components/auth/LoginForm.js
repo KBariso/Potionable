@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,6 +10,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -17,6 +19,14 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+
+  const demoLogin = (e) => {
+    e.preventDefault();
+    const email = "demo@aa.io";
+    const password = "password";
+    dispatch(login(email, password));
+    history.push("/")
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -57,6 +67,9 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+        <button type="submit" onClick={demoLogin}>
+                    User Demo Login
+                </button>
       </div>
     </form>
   );
