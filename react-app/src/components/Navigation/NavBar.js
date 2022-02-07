@@ -27,6 +27,9 @@ const NavBar = () => {
         <li>
           <LogoutButton />
         </li>
+        <li>
+          <input type="text" placeholder="Let's make..."  />
+        </li>
       </ul>
     </nav>
   );
