@@ -28,9 +28,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
