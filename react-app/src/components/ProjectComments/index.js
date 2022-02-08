@@ -17,15 +17,17 @@ const CommentsList = () => {
   const comments = Object.values(commentsObj);
   const userComments = comments.filter((comment) => comment.userId === user);
   console.log(comments)
-  if (!user) return <Redirect to="/home" />;
+//   const comments = useSelector((state) =>{
+
+//   });
+  if (!user) return <Redirect to="/" />;
 
   return (
     <div className="listContainer">
       <h1 className="commentsHeader">All comments</h1>
         {userComments.map((comment) => {
-          return (
-              comment
-          );
+            <p>{comment.title}</p>
+
         })}
 
       <div className="newCommentContainer">

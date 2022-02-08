@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 from app.models import db, Comment
 
 
@@ -9,5 +9,8 @@ comments = Blueprint(
 
 @comments.route("")
 def get_all_comments():
-    comments = Comment.query.order_by(Comment.id.desc()).all()
-    return {"comments": [comment.to_dict() for comment in comments]}
+    # comments = Comment.query.order_by(Comment.id.desc()).all()
+    # return {"comments": [comment.to_dict() for comment in comments]}
+
+    comments = [comment.to_dict() for comment in Comment.query.all()]
+    return jsonify(comments)

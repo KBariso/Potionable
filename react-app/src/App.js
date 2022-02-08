@@ -54,9 +54,6 @@ function App() {
         <Route path="/projects/:projectId">
           <SingleProjectPage />
           </Route>
-        <Route path="/comments/new">
-          <CreateNewComment />
-        </Route>
         <Route path="/comments">
           <CommentsList />
         </Route>
