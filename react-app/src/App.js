@@ -10,6 +10,7 @@ import User from './components/User';
 import UploadPicture from './file_upload/UploadPicture';
 import ViewImages from './file_upload/ViewImages';
 import SingleProjectPage from './components/SingleProjectPage'
+import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <AllProjects />
         </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
