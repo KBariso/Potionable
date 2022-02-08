@@ -1,6 +1,7 @@
 from flask.cli import AppGroup #This is where we implement our seed command. flask runner comes with a command interface.
 from .users import seed_users, undo_users
 from .projects import seed_projects, undo_projects
+from .steps import seed_steps, undo_steps
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -12,6 +13,7 @@ seed_commands = AppGroup('seed')            #Initializing the class with seed =>
 def seed():
     seed_users()
     seed_projects()
+    seed_steps()
     # Add other seed functions here
 
 
@@ -20,5 +22,5 @@ def seed():
 def undo():
     undo_users()
     undo_projects()
+    undo_steps()
     # Add other undo functions here
-
