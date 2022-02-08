@@ -16,6 +16,8 @@ def project(id):
 
 # TODO: Get all projects (Displays on the splash page)
 @projects.route('/', methods=["GET"])
+# @projects.route('/', methods=['GET'], strict_slashes=False)
+
 def get_all_projects():
     # projects = Project.query.all()
     # print(projects, 'look here')

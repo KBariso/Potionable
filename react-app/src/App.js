@@ -10,6 +10,8 @@ import User from './components/User';
 import UploadPicture from './file_upload/UploadPicture';
 import ViewImages from './file_upload/ViewImages';
 import SingleProjectPage from './components/SingleProjectPage'
+import CreateNewComment from './components/CommentsForm';
+import CommentsList from './components/ProjectComments';
 import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 
@@ -53,6 +55,9 @@ function App() {
         <Route path="/projects/:projectId">
           <SingleProjectPage />
           </Route>
+        <Route path="/comments">
+          <CommentsList />
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
