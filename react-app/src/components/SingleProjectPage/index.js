@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams} from "react-router-dom";
 import {getSingleProject} from "../../store/singleProject"
 import CreateNewComment from "../CommentsForm";
+import CommentsList from "../ProjectComments";
 
 
 const SingleProjectPage = () => {
@@ -24,7 +25,7 @@ const SingleProjectPage = () => {
     useEffect(()=>{
 
         dispatch(getSingleProject(projectId));
-        
+
     }, [dispatch, projectId])
 
 
@@ -38,6 +39,7 @@ const SingleProjectPage = () => {
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
                 <CreateNewComment />
+                <CommentsList />
 
             </div>
         </>
