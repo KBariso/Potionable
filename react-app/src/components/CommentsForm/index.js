@@ -36,11 +36,13 @@ const CreateNewComment = () => {
       comment,
     };
 
+
     let createdComment = await dispatch(createNewComment(payload));
     if (createdComment) {
       history.push(`/comments`);
     }
   };
+
 
   return (
     <div>

@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams} from "react-router-dom";
 import {getSingleProject} from "../../store/singleProject"
 import CreateNewComment from "../CommentsForm";
+import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
+
 
 
 const SingleProjectPage = () => {
@@ -16,11 +18,11 @@ const SingleProjectPage = () => {
     const projects = useSelector(state => state.project);
     const selectedProject = projects[projectId];
 
-    const user = useSelector(state => state.session.user)
-    const userId= user?.id
+    // const user = useSelector(state => state.session.user)
+    // const userId= user?.id
 
-    const preSession = selectedProject?.userId
-    const sessionId = userId === preSession
+    // const preSession = selectedProject?.userId
+    // const sessionId = userId === preSession
 
     useEffect(()=>{
 
@@ -38,8 +40,10 @@ const SingleProjectPage = () => {
                 </div>
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
+                <StepsForProject />
                 <CreateNewComment />
                 <CommentsList />
+
 
             </div>
         </>
