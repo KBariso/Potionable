@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from app.forms.comments import NewComment
-from app.models import db, Comment
+from app.models import db, Comment, Project
 from flask_login import current_user
 
 
@@ -13,7 +13,6 @@ comments = Blueprint(
 def get_all_comments():
     # comments = Comment.query.order_by(Comment.id.desc()).all()
     # return {"comments": [comment.to_dict() for comment in comments]}
-    print(current_user, "HELLOOOO!!!!!dfgaesgGEagfa")
 
     comments = [comment.to_dict() for comment in Comment.query.all()]
     # return print(comments, "I AM HERE!!!!!!!!!")
@@ -21,9 +20,10 @@ def get_all_comments():
 
 
 @comments.route('/new', methods=["POST"])
-def comment_form_submit(project_id):
+def comment_form_submit():
     form = NewComment()
-    print("I AM HERE!!!!!")
+    req_body = request.json #To get the info we need from front to back
+    # print(test["project_id"], "TESTTINNGGGGGGGGG")
     form['csrf_token'].data = request.cookies['csrf_token']
 
     new_comment = form['comment'].data
@@ -32,7 +32,7 @@ def comment_form_submit(project_id):
         data = form.data
         new_comment = Comment(comment = data["comment"],
                               user_id = current_user.id,
-                              project_id = data["project_id"])
+                              project_id = req_body["project_id"])
         db.session.add(new_comment)
         db.session.commit()
         return new_comment.to_dict()
