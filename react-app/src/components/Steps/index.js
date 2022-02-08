@@ -2,53 +2,45 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {getSteps} from '../../store/step'
-import StepEditDelete from "../EditDeleteSteps";
 
 
 
-const StepsForProject = ({stepsId}) => {
+
+const StepsForProject = () => {
     const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getSteps());
+  }, [dispatch]);
 
-    useEffect(() => {
-    //     async function save() {
-    //      const deploySteps= await dispatch(getSteps(stepsId));
-    //     }
+  const steps = useSelector((state) => {
+    return Object.values(state.steps);
+  });
+// const steps = useSelector(state => state.steps);
+  console.log("TEST FROM ALL PROJECTS", steps);
 
-    //    save();
-    dispatch(getSteps(stepsId));
-
-    }, [dispatch, stepsId])
-
-    const bob = useSelector(state => state.step)
-    const bobArray= Object.values(bob)
-    console.log(getSteps(stepsId), 'HAHAHAHAHAHAHAHHAHAAH')
-
-    const stepsFunction= useSelector(state => {
-        const stepsArray=  Object.values(state.step)
+  return (
 
 
-    //need to filter here, when I dont steps will appear on each project until refresh.
-      const filtered=  stepsArray.filter(step => step.project_id === stepsId)
 
-        if(filtered){
-            return filtered
-        }
-    })
 
-    return (
-        <div>
-          <div id='rhetoric'>
-          { stepsFunction.map((info) => {
-                return (
+<>
 
-                  <StepEditDelete key={info.id} info={info} photoId={info.project_id} />
-                );
-
+          {steps.map((step) =>{
+              return (
+                  <>
+              <div>{step.title}</div>
+              <div>{step.body}</div>
+              </>
+              );
               })}
-          </ div>
-        </div>
-      );
+
+
+</>
+
+
+
+  );
 
 }
 

@@ -12,6 +12,7 @@ import ViewImages from './file_upload/ViewImages';
 import SingleProjectPage from './components/SingleProjectPage'
 import CreateNewComment from './components/CommentsForm';
 import CommentsList from './components/ProjectComments';
+import StepsForProject from './components/Steps'
 import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 
@@ -52,7 +53,10 @@ function App() {
         <Route path='/images' exact={true}>
           <ViewImages />
         </Route>
-        <Route path="/projects/:projectId">
+        {/* <Route path='/steps' exact={true}>
+          <StepsForProject />
+        </Route> */}
+        <Route path="/projects/:projectId" exact={true}>
           <SingleProjectPage />
           </Route>
         <Route path="/comments">

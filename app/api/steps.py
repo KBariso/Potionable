@@ -7,8 +7,13 @@ steps = Blueprint(
 )
 
 
-@projects.route('/<int:id>')
+@steps.route('/', methods=['GET'], strict_slashes=False)
+def get_all_steps():
+    # projects = Project.query.all()
+    # print(projects, 'look here')
+    # return {'projects': [project.to_dict() for project in projects]}
+    steps = [step.to_dict() for step in Step.query.all()]
 
-def steps(id):
-    steps = Step.query.get(id)
-    return steps.to_dict()
+    # return print('HAHAHHAHAHAHHA', steps)
+    # return projects.to_dict()
+    return jsonify(steps)
