@@ -7,9 +7,24 @@ def seed_projects():
         description='A bar of soap made by Harry Potter himself. Have a fight with they who shall not be named? Clean up with Harry Potters Fancy Bar Soap.',
         media_url= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGw9Eo7Q35K449TfpC5zBQPYtR0YsB1jvYRw&usqp=CAU',
         user_id=1
-)
+    )
+    harry_potter2= Project(
+        title='Harry Potters Fancy Bar Soap dupe',
+        description='A bar of soap made by Harry Potter himself. Have a fight with they who shall not be named? Clean up with Harry Potters Fancy Bar Soap.',
+        media_url= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGw9Eo7Q35K449TfpC5zBQPYtR0YsB1jvYRw&usqp=CAU',
+        user_id=1
+    )
+    harry_potter3= Project(
+        title='Harry Potters Fancy Bar Soap dupe again',
+        description='A bar of soap made by Harry Potter himself. Have a fight with they who shall not be named? Clean up with Harry Potters Fancy Bar Soap.',
+        media_url= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGw9Eo7Q35K449TfpC5zBQPYtR0YsB1jvYRw&usqp=CAU',
+        user_id=1
+    )
+
 
     db.session.add(harry_potter)
+    db.session.add(harry_potter2)
+    db.session.add(harry_potter3)
 
     db.session.commit()
 
