@@ -6,7 +6,7 @@ import {getSteps} from '../../store/step'
 
 
 
-const StepsForProject = () => {
+const StepsForProject = ({projectsId}) => {
     const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +14,11 @@ const StepsForProject = () => {
   }, [dispatch]);
 
   const steps = useSelector((state) => {
-    return Object.values(state.steps);
+    const stepsArray= Object.values(state.steps);
+    const filtered= stepsArray.filter(step => step.project_id === projectsId)
+
+    return filtered
+
   });
 // const steps = useSelector(state => state.steps);
   console.log("TEST FROM ALL PROJECTS", steps);

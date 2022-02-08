@@ -40,7 +40,7 @@ const SingleProjectPage = () => {
                 </div>
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
-                <StepsForProject />
+                <StepsForProject projectsId={projects.id} />
                 <CreateNewComment />
                 <CommentsList />
 
