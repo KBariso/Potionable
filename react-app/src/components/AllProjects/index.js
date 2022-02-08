@@ -11,6 +11,8 @@ const AllProjects = () => {
   }, [dispatch]);
 
   const projects = useSelector((state) => {
+    console.log('>>>>>>>PROJECT State>>>>', state.projects)
+    // Makes an array to map through later:
     return Object.values(state.projects);
   });
   console.log("TEST FROM ALL PROJECTS", projects);
@@ -19,8 +21,8 @@ const AllProjects = () => {
     <div>
       {projects?.map((project) => (
         <Link key={project.id} to={`/projects/${project.id}`}>
-          <p> {project.title} </p>
           <img src={project.media_url} />
+          <p> {project.title} </p>
         </Link>
       ))}
     </div>
