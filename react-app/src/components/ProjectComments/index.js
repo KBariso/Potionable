@@ -25,14 +25,9 @@ const CommentsList = () => {
   return (
     <div className="listContainer">
       <h1 className="commentsHeader">All comments</h1>
-        {comments.map((comment) => {
-            <p>{comment.title}</p>
-
+        {comments?.map((comment) => {
+            <p>{comment.comment}</p>
         })}
-
-      <div className="newCommentContainer">
-        <NavLink className="newComment" to="/comments/new">New Comment</NavLink>
-      </div>
     </div>
   );
 };
