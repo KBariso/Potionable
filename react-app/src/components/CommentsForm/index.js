@@ -9,6 +9,8 @@ const CreateNewComment = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { projectId } = useParams();
+  const projects = useSelector(state => state.project.id);
+  console.log(projects, "HEllooo")
   const user = useSelector(state => state.session.user?.id)
   const userId= user;
 
@@ -34,12 +36,12 @@ const CreateNewComment = () => {
     const payload = {
       user_id:userId,
       comment,
-      project_id:projectId,
+      project_id:projects,
     };
 
     let createdComment = await dispatch(createNewComment(payload));
     if (createdComment) {
-      history.push(`/comments`);
+      setComment("")
     }
   };
 
