@@ -4,12 +4,14 @@ import session from './session'
 import project from './singleProject'
 import allProjectsReducer from './allProjects';
 import commentsReducer from './comments';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   project:project,
   projects:allProjectsReducer,
-  comments: commentsReducer
+  comments: commentsReducer,
+  search: searchReducer
 });
 
 

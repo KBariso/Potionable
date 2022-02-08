@@ -6,9 +6,12 @@ from app.models import db, Project
 search = Blueprint("search", __name__, url_prefix='/search')
 
 
-@search.route('/', methods=["GET", "POST"])
+@search.route('/<search>', methods=["GET", "POST"])
 def search_projects():
     form = SearchForm()
+
+    test = request.body
+    print('SEARCH TEST HERE!!', test)
 
     if form.validate_on_submit():
         search_term = form.data['search']

@@ -5,6 +5,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./NavBar.css";
 import { useSelector } from "react-redux";
+import Search from "../Search";
 
 const NavBar = () => {
   const isUser = useSelector((state) => state.session.user);
@@ -43,7 +44,7 @@ const NavBar = () => {
           <ul className="nav-bottom-right">
             <li>Publish</li>
             <li>
-              <input type="text" placeholder="Let's make..." />
+              <Search />
             </li>
           </ul>
         </div>
