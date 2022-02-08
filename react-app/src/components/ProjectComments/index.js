@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { NavLink, Redirect } from "react-router-dom";
 import { getAllComments } from "../../store/comments";
+import CreateNewComment from "../CommentsForm";
 
 
 const CommentsList = () => {
@@ -27,8 +28,11 @@ const CommentsList = () => {
     <div className="commentsContainer">
       <h1 className="commentsHeader">All comments</h1>
         {comments?.map((comment) => {
+           return (
             <p>{comment.comment}</p>
+           )
         })}
+      <CreateNewComment />
     </div>
   );
 };
