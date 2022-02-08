@@ -21,6 +21,6 @@ def seed_comments():
     db.session.commit()
 
 
-def undo_projects():
+def undo_comments():
     # db.session.execute('TRUNCATE projects RESTART IDENTITY CASCADE;')  #Remove everything from the users table and restarts the identity cascade.
     db.session.commit()
