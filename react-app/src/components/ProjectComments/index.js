@@ -12,20 +12,20 @@ const CommentsList = () => {
   }, [dispatch]);
 
   const user = useSelector((state) => state.session?.user?.id);
-  const commentsObj = useSelector((state) => state.comments);
-  console.log(commentsObj)
-  const comments = Object.values(commentsObj);
-  const userComments = comments.filter((comment) => comment.userId === user);
-  console.log(comments)
-//   const comments = useSelector((state) =>{
-
-//   });
+//   const commentsObj = useSelector((state) => state.comments);
+//   console.log(commentsObj)
+//   const comments = Object.values(commentsObj);
+//   const userComments = comments.filter((comment) => comment.userId === user);
+//   console.log(comments)
+  const comments = useSelector((state) =>{
+      return Object.values(state.comments)
+  });
   if (!user) return <Redirect to="/" />;
 
   return (
     <div className="listContainer">
       <h1 className="commentsHeader">All comments</h1>
-        {userComments.map((comment) => {
+        {comments.map((comment) => {
             <p>{comment.title}</p>
 
         })}
@@ -38,3 +38,28 @@ const CommentsList = () => {
 };
 
 export default CommentsList;
+
+
+// const AllProjects = () => {
+//     const dispatch = useDispatch();
+
+//     useEffect(() => {
+//       dispatch(getAllProjects());
+//     }, [dispatch]);
+
+//     const projects = useSelector((state) => {
+//       return Object.values(state.projects);
+//     });
+//     console.log("TEST FROM ALL PROJECTS", projects);
+
+//     return (
+//       <div>
+//         {projects?.map((project) => (
+//           <Link key={project.id} to={`/projects/${project.id}`}>
+//             <p> {project.title} </p>
+//             <img src={project.media_url} />
+//           </Link>
+//         ))}
+//       </div>
+//     );
+//   };
