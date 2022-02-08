@@ -24,7 +24,7 @@ const SingleProjectPage = () => {
     useEffect(()=>{
 
         dispatch(getSingleProject(projectId));
-
+        
     }, [dispatch, projectId])
 
 

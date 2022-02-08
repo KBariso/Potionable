@@ -10,11 +10,11 @@ const loadAllComments = (comments) => ({
 })
 
 export const getAllComments = () => async (dispatch) => {
-    const res = await fetch(`api/comments`);
+    const res = await fetch(`/api/comments`);
     if (res.ok) {
         const comments = await res.json();
         dispatch(loadAllComments(comments));
-        return comments;
+        // return comments;
     }
 }
 
@@ -80,7 +80,7 @@ const commentsReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case GET_ALL_COMMENTS:
-            action.comments.forEach((comment) => {
+            action.comments.forEach(comment => {
                 newState[comment.id] = comment;
             })
             return {...state, ...newState}

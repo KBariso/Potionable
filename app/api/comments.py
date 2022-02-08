@@ -13,4 +13,5 @@ def get_all_comments():
     # return {"comments": [comment.to_dict() for comment in comments]}
 
     comments = [comment.to_dict() for comment in Comment.query.all()]
+    # return print(comments, "I AM HERE!!!!!!!!!")
     return jsonify(comments)

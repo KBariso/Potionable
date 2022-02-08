@@ -12,6 +12,7 @@ import ViewImages from './file_upload/ViewImages';
 import SingleProjectPage from './components/SingleProjectPage'
 import CreateNewComment from './components/CommentsForm';
 import CommentsList from './components/ProjectComments';
+import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <AllProjects />
         </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
