@@ -11,7 +11,7 @@ class Step(db.Model):
 
 
     medias = db.relationship("Media", back_populates="step")
-    project = db.relationship("Project", back_populates="steps")
+    projects = db.relationship("Project", back_populates="steps")
 
     def to_dict(self):
         return {
