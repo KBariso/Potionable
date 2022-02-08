@@ -9,8 +9,8 @@ const CreateNewComment = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { projectId } = useParams();
-  const user = useSelector(state => state.session.user)
-  const userId= user?.id
+  const user = useSelector(state => state.session.user?.id)
+  const userId= user;
 
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);
@@ -32,10 +32,10 @@ const CreateNewComment = () => {
     if (errors.length > 0) return;
 
     const payload = {
-      projectId,
+      user_id:userId,
       comment,
+      project_id:projectId,
     };
-
 
     let createdComment = await dispatch(createNewComment(payload));
     if (createdComment) {

@@ -25,7 +25,7 @@ const createOneComment = (comment) => ({
 })
 
 export const createNewComment = (comment) => async (dispatch) => {
-    const res = await fetch(`/api/comments`, {
+    const res = await fetch(`/api/comments/new`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(comment),
@@ -33,7 +33,7 @@ export const createNewComment = (comment) => async (dispatch) => {
     if (res.ok) {
         const comment = await res.json();
         dispatch(createOneComment(comment));
-        // return comment
+        return comment
     }
 }
 
