@@ -9,7 +9,7 @@ comments = Blueprint(
 )
 
 
-@comments.route('/', methods=["GET"])
+@comments.route('/', methods=["GET"], strict_slashes=False)
 def get_all_comments():
     # comments = Comment.query.order_by(Comment.id.desc()).all()
     # return {"comments": [comment.to_dict() for comment in comments]}
@@ -19,7 +19,7 @@ def get_all_comments():
     return jsonify(comments)
 
 
-@comments.route('/new', methods=["POST"])
+@comments.route('/new', methods=["POST"], strict_slashes=False)
 def comment_form_submit():
     form = NewComment()
     req_body = request.json #To get the info we need from front to back
@@ -34,11 +34,13 @@ def comment_form_submit():
                               user_id = current_user.id,
                               project_id = req_body["project_id"])
         db.session.add(new_comment)
+
         db.session.commit()
         return new_comment.to_dict()
 
     else:
         return "Bad Data"
+
 
 
 @comments.route('/<int:id>/edit', methods=["PUT"])
@@ -56,3 +58,4 @@ def edit_comment(id):
         db.session.add(comment)
         db.session.commit()
         return jsonify(comment)
+

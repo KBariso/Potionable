@@ -1,5 +1,6 @@
 from .db import db
-from sqlalchemy import ForeignKey
+# from sqlalchemy import ForeignKey
+# from sqlalchemy.orm import backref
 
 class Project(db.Model):
     __tablename__ = 'projects'
@@ -11,9 +12,9 @@ class Project(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     user = db.relationship("User", back_populates="projects")
-    steps = db.relationship("Step", back_populates="projects")
-    comments = db.relationship("Comment", back_populates="projects")
-    medias = db.relationship("Media", back_populates="projects")
+    steps = db.relationship("Step", back_populates="projects", cascade="all, delete-orphan")
+    comments = db.relationship("Comment", back_populates="projects", cascade="all, delete-orphan")
+    medias = db.relationship("Media", back_populates="projects", cascade="all, delete-orphan")
 
 
     def to_dict(self):

@@ -1,5 +1,5 @@
 from .db import db
-from sqlalchemy import ForeignKey
+# from sqlalchemy import ForeignKey
 
 class Comment(db.Model):
     __tablename__ = 'comments'
