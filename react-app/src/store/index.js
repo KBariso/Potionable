@@ -5,6 +5,8 @@ import project from './singleProject'
 import allProjectsReducer from './allProjects';
 import commentsReducer from './comments';
 import searchReducer from './search';
+import stepReducer from './step';
+
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
   projects:allProjectsReducer,
   comments: commentsReducer,
   search: searchReducer
+  steps: stepReducer,
+
 });
 
 

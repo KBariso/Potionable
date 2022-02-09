@@ -1,12 +1,12 @@
-const GET_ALL_COMMENTS = "comments/GET_ALL_COMMENT";
+const GET_ALL_COMMENTS = "comments/GET_ALL_COMMENTS";
 const CREATE_ONE_COMMENT = "comments/CREATE_ONE_COMMENT";
 const EDIT_ONE_COMMENT = "comments/EDIT_ONE_COMMENT";
-const DELETE_ONE_COMMENT = "comments/DELETE_ONE_COMMENTS";
+const DELETE_ONE_COMMENT = "comments/DELETE_ONE_COMMENT";
 
 
 const loadAllComments = (comments) => ({
     type: GET_ALL_COMMENTS,
-    comments
+    comments,
 })
 
 export const getAllComments = () => async (dispatch) => {
@@ -25,7 +25,7 @@ const createOneComment = (comment) => ({
 })
 
 export const createNewComment = (comment) => async (dispatch) => {
-    const res = await fetch(`/api/comments`, {
+    const res = await fetch(`/api/comments/new`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(comment),
@@ -85,7 +85,7 @@ const commentsReducer = (state = initialState, action) => {
             })
             return {...state, ...newState}
         case CREATE_ONE_COMMENT:
-            return {...state, [action.comment.id]: action.note}
+            return {...state, [action.comment.id]: action.comment}
         case EDIT_ONE_COMMENT:
             return {...state, [action.comment.id]: action.comment}
         case DELETE_ONE_COMMENT:

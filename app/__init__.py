@@ -9,6 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.projects import projects
+from .api.steps import steps
 from .api.comments import comments
 from .api.search import search
 
@@ -35,6 +36,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users') #anytime we want to get to user or auth routes we have to access them with this. (For our backend)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(projects, url_prefix='/api/projects')
+app.register_blueprint(steps, url_prefix='/api/steps')
 app.register_blueprint(comments, url_prefix='/api/comments')
 app.register_blueprint(search, url_prefix='/api/search')
 db.init_app(app)

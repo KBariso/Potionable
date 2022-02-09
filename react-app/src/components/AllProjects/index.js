@@ -45,8 +45,9 @@ const AllProjects = () => {
 
       {projects?.map((project) => (
         <Link key={project.id} to={`/projects/${project.id}`}>
-          <img src={project.media_url} />
+
           <p> {project.title} </p>
+          <img src={project.media_url} alt='alt' />
         </Link>
       ))}
     </div>
