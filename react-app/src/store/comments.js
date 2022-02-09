@@ -62,15 +62,14 @@ const deleteOneComment = (commentId) => ({
     commentId,
   })
 
-  export const deleteComment = ({ commentId }) => async (dispatch) => {
+  export const deleteComment = ( commentId ) => async dispatch => {
     const res = await fetch (`/api/comments/${commentId}`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ commentId })
+
     });
     if (res.ok) {
-      const deletedComment = await res.json();
-      dispatch(deleteOneComment(deletedComment));
+
+      dispatch(deleteOneComment(commentId));
     }
   }
 
@@ -92,7 +91,7 @@ const commentsReducer = (state = initialState, action) => {
         case DELETE_ONE_COMMENT:
             newState = {...state};
             delete newState[action.commentId];
-            return {newState}
+            return newState
         default:
             return state;
     }
