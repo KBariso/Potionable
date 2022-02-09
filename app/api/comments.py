@@ -36,7 +36,16 @@ def comment_form_submit():
         db.session.add(new_comment)
         db.session.commit()
         return new_comment.to_dict()
-        return redirect("/")
 
     else:
         return "Bad Data"
+
+
+@comments.route('/<commentId>/edit', methods=["PUT"])
+def edit_comment(commentId):
+    comment = Comment.query.filter_by(id=commentId)
+    # print(comment, "I AM THE COMMENT")
+    comment_body = request.json
+    comment.comment = comment_body['comment']
+    db.session.commit()
+    return jsonify(comment.to_dict())

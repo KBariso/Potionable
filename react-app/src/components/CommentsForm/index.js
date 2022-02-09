@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { createNewComment } from "../../store/comments";
-import { NavLink } from "react-router-dom";
+
 
 const CreateNewComment = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const { projectId } = useParams();
   const projects = useSelector(state => state.project.id);
   console.log(projects, "HEllooo")
   const user = useSelector(state => state.session.user?.id)
