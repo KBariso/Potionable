@@ -8,20 +8,25 @@ const EditComment = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const {commentId} = useParams()
+
 //   console.log(commentId)
   const oneComment = useSelector((state) => state.comments);
   const projectComment = oneComment[commentId].comment
   console.log(oneComment.comment)
+
 //   const user = useSelector(state => state.session.user?.id)
 //   const userId= user;
+
 
 
       const [comment, setComment] = useState(oneComment[commentId].comment);
     //   const [errors, setErrors] = useState([]);
 
+
       const updateComment = (e) => setComment(e.target.value);
 
 //   useEffect(() => {
+
 //     const errors = [];
 //     if (!comment.length) {
 //       errors.push("Comment on this project!");
@@ -33,11 +38,11 @@ const EditComment = () => {
 
 
 //   useEffect(() => {
+
 //         if (projectComment) {
 //             setComment(projectComment);
 //         }
 //     }, [projectComment])
-
 
 
   const handleSubmit = async (e) => {
@@ -45,8 +50,8 @@ const EditComment = () => {
     // if (errors.length > 0) return;
 
     const updatedPayload = {
-        commentId,
-        comment,
+        // id:commentId,
+        comment
         // project_id:projects,
     };
 

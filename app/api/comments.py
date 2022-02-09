@@ -42,6 +42,7 @@ def comment_form_submit():
         return "Bad Data"
 
 
+
 @comments.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
 def edit_comment(id):
     comment = Comment.query.filter_by(id=id).first()
@@ -50,3 +51,4 @@ def edit_comment(id):
     comment.comment = comment_id['comment']
     db.session.commit()
     return jsonify(comment.comment)
+
