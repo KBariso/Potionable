@@ -1,4 +1,5 @@
 const GET_ONE_PROJECT = "project/GET_ONE_PROJECT"
+const CREATE_ONE_PROJECT = "project/CREATE_ONE_PROJECT"
 const REMOVE="project/REMOVE"
 
 
@@ -6,6 +7,11 @@ const getSingle= (project) => ({
     type: GET_ONE_PROJECT,
     project
 });
+
+const createOneProject = (project) =>({
+    type: CREATE_ONE_PROJECT,
+    project
+})
 
 const removeProject = (projectId) => {
     return {
@@ -22,6 +28,20 @@ export const getSingleProject = (id) => async (dispatch) => {
 
     }
 }
+
+export const createNewProject = (project) => async (dispatch) => {
+    const res = await fetch(`/api/projects/new`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(project)
+    })
+    if (res.ok) {
+        const project = await res.json();
+        dispatch(createOneProject(project));
+        return project
+    }
+}
+
 
 export const removeProjectThunk = (projectId) => async (dispatch) => {
     const res = await fetch(`/api/projects/${projectId}`, {
@@ -41,7 +61,12 @@ const project = (state= {}, action) => {
             return{
                 ...state,
                 ...action.project,
-
+            }
+        }
+        case CREATE_ONE_PROJECT: {
+            return{
+                ...state,
+                [action.project.id]: action.project
             }
         }
         case REMOVE:{

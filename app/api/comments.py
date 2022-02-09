@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect, request
 from app.forms.comments import NewComment
-from app.models import db, Comment, Project
+from app.models import db, Comment
 from flask_login import current_user
 
 
@@ -9,6 +9,8 @@ comments = Blueprint(
 )
 
 
+
+# -----------------GET ALL COMMENTS----------------
 @comments.route('/', methods=["GET"], strict_slashes=False)
 def get_all_comments():
     # comments = Comment.query.order_by(Comment.id.desc()).all()
@@ -19,6 +21,8 @@ def get_all_comments():
     return jsonify(comments)
 
 
+
+# ------------------CREATE A NEW COMMENT -------------------
 @comments.route('/new', methods=["POST"], strict_slashes=False)
 def comment_form_submit():
     form = NewComment()
@@ -43,6 +47,8 @@ def comment_form_submit():
 
 
 
+
+# --------------------EDIT A COMMENT -------------------
 @comments.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
 def edit_comment(id):
     comment = Comment.query.filter_by(id=id).first()
@@ -51,4 +57,3 @@ def edit_comment(id):
     comment.comment = comment_id['comment']
     db.session.commit()
     return jsonify(comment.comment)
-

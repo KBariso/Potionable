@@ -59,7 +59,7 @@ function App() {
         </Route> */}
         <Route path="/projects/:projectId" exact={true}>
           <SingleProjectPage />
-          </Route>
+        </Route>
         <Route path="/comments/:commentId/edit">
           <EditComment />
         </Route>
