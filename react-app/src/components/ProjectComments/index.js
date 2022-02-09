@@ -19,7 +19,7 @@ const CommentsList = () => {
 //   const projectComments = comments.filter((comment) => comment.projectId === user);
 //   console.log(comments)
   const comments = useSelector((state) => {
-      console.log(state.comments, "HELLLOOOOO")
+      // console.log(state.comments, "HELLLOOOOO")
       return Object.values(state.comments)
   });
 //   if (!user) return <Redirect to="/" />;

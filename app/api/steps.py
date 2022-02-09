@@ -17,3 +17,14 @@ def get_all_steps():
     # return print('HAHAHHAHAHAHHA', steps)
     # return projects.to_dict()
     return jsonify(steps)
+
+
+@steps.route("/<int:id>", methods=["DELETE"])
+def delete_step(id):
+    step = Step.query.get(id)
+    # Step.query.filter(Step.id == id).delete()
+    # db.session.commit()
+    # return "True", 201
+    db.session.delete(step)
+    db.session.commit()
+    return 'ok'

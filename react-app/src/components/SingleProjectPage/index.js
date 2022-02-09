@@ -15,8 +15,10 @@ const SingleProjectPage = () => {
     const {projectId}= useParams()
 
 
-    const projects = useSelector(state => state.project);
-    const selectedProject = projects[projectId];
+    const projects = useSelector(state => state.project)
+     
+
+    // const selectedProject = projects[projectId];
 
     // const user = useSelector(state => state.session.user)
     // const userId= user?.id
@@ -34,18 +36,20 @@ const SingleProjectPage = () => {
     return(
 
         <>
+
           <div className='singleProjectWrapper'>
                 <div>
                     <img src={projects.media_url} alt='alternative' />
                 </div>
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
-                <StepsForProject projectsId={projects.id} />
+                <StepsForProject projectsId={projects.id} data={projects.id} />
                 <CreateNewComment />
                 <CommentsList />
 
 
             </div>
+
         </>
     )
 }
