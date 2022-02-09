@@ -43,7 +43,7 @@ def comment_form_submit():
 
 
 
-@comments.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
+@comments.route('/<id>/edit', methods=["PUT"])
 def edit_comment(id):
     comment = Comment.query.filter_by(id=id).first()
     # print(comment, "I AM THE COMMENT")
@@ -52,3 +52,11 @@ def edit_comment(id):
     db.session.commit()
     return jsonify(comment.comment)
 
+
+@comments.route("/<int:id>", methods=["DELETE"])
+def delete_comment(id):
+    comment = Comment.query.get(id)
+
+    db.session.delete(comment)
+    db.session.commit()
+    return 'ok'
