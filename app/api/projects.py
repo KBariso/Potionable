@@ -30,7 +30,9 @@ def get_all_projects():
 
 @projects.route("/<int:id>", methods=["DELETE"])
 def delete_project(id):
-    project = Project.query.get(id)
-    Project.query.filter(Project.id == id).delete()
+    # project = Project.query.get(id)
+    deleteProject= Project.query.filter(Project.id == id).first()
+    db.session.delete(deleteProject)
     db.session.commit()
-    return "True", 201
+    # return "True", 201
+    return flask.redirect("/")

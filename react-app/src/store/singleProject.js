@@ -45,7 +45,7 @@ const project = (state= {}, action) => {
             }
         }
         case REMOVE:{
-            const newState = { ...state };
+
             delete newState[ action.projectId];
             return newState;
         }

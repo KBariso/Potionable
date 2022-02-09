@@ -35,12 +35,13 @@ const SingleProjectPage = () => {
 
     console.log('YESYEYSYES', projectId)
 
-    const handleDelete = (e) => {
-        e.preventDefault();
-      const deleteInfo =dispatch(removeProjectThunk(projectId))
-      if(deleteInfo && sessionId){
+    const handleDelete =  (e) => {
+
+      dispatch(removeProjectThunk(projectId))
+    //   if(deleteInfo){
         history.push("/");
-      }
+        window.location.reload();
+    //   }
     }
 
     return(
@@ -57,7 +58,7 @@ const SingleProjectPage = () => {
                 <div>
           {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
     </div>
-                <CreateNewComment />
+                {/* <CreateNewComment /> */}
                 <CommentsList />
 
                 <StepsForProject />
