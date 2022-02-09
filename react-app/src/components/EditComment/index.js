@@ -11,7 +11,7 @@ const EditComment = () => {
 
 //   console.log(commentId)
   const oneComment = useSelector((state) => state.comments);
-  // console.log(oneComment[commentId].project_id, "I AM THE ONE COMENNT")
+  console.log(oneComment[commentId].user_id, "I AM THE ONE COMENNT")
   const projectId = oneComment[commentId].project_id
   // console.log(oneComment.comment)
 
