@@ -1,5 +1,5 @@
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from app.forms.search_form import SearchForm
 from app.models import db, Project
 

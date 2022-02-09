@@ -13,7 +13,7 @@ const Search = () => {
         e.preventDefault();
 
         const payload = {
-            search
+            search: search
         }
 
         dispatch(getSearch(payload))
@@ -27,7 +27,7 @@ const Search = () => {
 
     return (
         <form onSubmit={handleSearch}>
-            <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's make..." />
+            <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Is this working?" />
         </form>
     )
 }
