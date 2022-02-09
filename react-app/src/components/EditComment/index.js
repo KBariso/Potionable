@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { editComment } from "../../store/comments";
 import { NavLink } from "react-router-dom";
 
 const EditComment = () => {
   const dispatch = useDispatch();
-  const oneComment = useSelector((state) => state.commentId);
-  console.log(oneComment, "I AM THE ID!!!!!!!!!!!!!!")
-  const user = useSelector(state => state.session.user?.id)
-  const userId= user;
+  const history = useHistory()
+  const {commentId} = useParams()
+//   console.log(commentId)
+  const oneComment = useSelector((state) => state.comments);
+  const projectComment = oneComment[commentId].comment
+//   console.log(projectComment)
+//   const user = useSelector(state => state.session.user?.id)
+//   const userId= user;
 
-  const [comment, setComment] = useState(oneComment?.comment);
-  const [errors, setErrors] = useState([]);
 
-  const updateComment = (e) => setComment(e.target.value);
+      const [comment, setComment] = useState(oneComment[commentId].comment);
+      const [errors, setErrors] = useState([]);
+
+      const updateComment = (e) => setComment(e.target.value);
 
 //   useEffect(() => {
 //     const errors = [];
@@ -28,10 +33,10 @@ const EditComment = () => {
 
 
   useEffect(() => {
-    if (oneComment) {
-        setComment(oneComment?.comment);
-    }
-}, [oneComment])
+        if (projectComment) {
+            setComment(projectComment);
+        }
+    }, [projectComment])
 
 
 
@@ -40,14 +45,14 @@ const EditComment = () => {
     if (errors.length > 0) return;
 
     const updatedPayload = {
-        user_id:userId,
+        commentId,
         comment,
         // project_id:projects,
     };
 
     let updatedComment = await dispatch(editComment(updatedPayload));
-    if (!updatedComment) {
-        setComment(oneComment?.comment)
+    if (updatedComment) {
+        history.push(`/projects/1`)
     }
   };
 
@@ -75,3 +80,5 @@ const EditComment = () => {
 };
 
 export default EditComment;
+
+

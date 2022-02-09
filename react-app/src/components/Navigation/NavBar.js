@@ -5,6 +5,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./NavBar.css";
 import { useSelector } from "react-redux";
+import Search from "../Search";
 
 const NavBar = () => {
   const isUser = useSelector((state) => state.session.user);
@@ -33,9 +34,9 @@ const NavBar = () => {
         <div className="nav-bottom-options">
           <ul className="nav-bottom-left">
             <li>
-              <NavLink to="/" exact={true} activeClassName="active">
+              <a href='/'>
                 Logo
-              </NavLink>
+              </a>
             </li>
             <li className="site-name">Potionable</li>
             <li>Projects</li>
@@ -43,7 +44,7 @@ const NavBar = () => {
           <ul className="nav-bottom-right">
             <li>Publish</li>
             <li>
-              <input type="text" placeholder="Let's make..." />
+              <Search />
             </li>
           </ul>
         </div>
@@ -55,9 +56,9 @@ const NavBar = () => {
         <nav>
           <ul className="nav-top-options">
             <li>
-              <NavLink to="/" exact={true} activeClassName="active">
+              <a href='/'>
                 <img src="https://res.cloudinary.com/dd9qejhag/image/upload/v1644269348/Potionable/potion-svgrepo-com_1_va7rug.svg" />
-              </NavLink>
+              </a>
             </li>
             <li>PLACE HOLDER1</li>
             <li>PLACE HOLDER2</li>
@@ -74,9 +75,9 @@ const NavBar = () => {
         <div className="nav-bottom-options">
           <ul className="nav-bottom-left">
             <li>
-              <NavLink to="/" exact={true} activeClassName="active">
+              <a href='/'>
                 Logo
-              </NavLink>
+              </a>
             </li>
             <li className="site-name">Potionable</li>
             <li>Projects</li>
@@ -84,7 +85,7 @@ const NavBar = () => {
           <ul className="nav-bottom-right">
             <li>Publish</li>
             <li>
-              <input type="text" placeholder="Let's make..." />
+              <Search />
             </li>
           </ul>
         </div>
