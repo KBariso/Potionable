@@ -26,7 +26,7 @@ def comment_form_submit():
     # print(test["project_id"], "TESTTINNGGGGGGGGG")
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    new_project = form['project'].data
+    # new_project = form['project'].data
 
     if form.validate_on_submit():
         data = form.data

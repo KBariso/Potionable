@@ -11,7 +11,7 @@ const CreateNewProject = () => {
     const userId= user;
 
     const [title, setTitle] = useState("");
-    const [description, setTitle] = useState("");
+    const [description, setDescription] = useState("");
     const [media, setMedia] = useState("");
 
     const updateTitle = (e) => setTitle(e.target.value)
@@ -22,7 +22,10 @@ const CreateNewProject = () => {
         e.preventDefault();
 
         const payload = {
-
+            user_id:userId,
+            title,
+            description,
+            media_url:media
         };
 
         let createdProject = await dispatch(createNewProject(payload));
@@ -33,10 +36,34 @@ const CreateNewProject = () => {
 
     return (
         <div>
-            {/* <form onSubmit={handleSubmit}>
-
-            </form> */}
+            <form onSubmit={handleSubmit}>
+                <input
+                    className="titleInput"
+                    placeholder="Title"
+                    type="text"
+                    value={title}
+                    onChange={updateTitle}
+                />
+                <textarea
+                    className="titleInput"
+                    placeholder="Description"
+                    type="text"
+                    value={description}
+                    onChange={updateDescription}
+                />
+                <input
+                    className="mediaInput"
+                    placeholder="Media"
+                    type="text"
+                    value={media}
+                    onChange={updateMedia}
+                />
+                <button type="submit">New Project</button>
+            </form>
 
         </div>
     )
 }
+
+
+export default CreateNewProject

@@ -16,6 +16,7 @@ import StepsForProject from './components/Steps'
 import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 import EditComment from './components/EditComment';
+import CreateNewProject from './components/CreateProject';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +58,9 @@ function App() {
         {/* <Route path='/steps' exact={true}>
           <StepsForProject />
         </Route> */}
+        <Route path="/projects/new" exact={true}>
+          <CreateNewProject />
+        </Route>
         <Route path="/projects/:projectId" exact={true}>
           <SingleProjectPage />
         </Route>
