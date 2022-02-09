@@ -47,6 +47,11 @@ const SingleProjectPage = () => {
                 <CreateNewComment />
                 <CommentsList />
 
+                <StepsForProject />
+                {/* <CreateNewComment /> */}
+                <CommentsList/>
+
+
 
             </div>
 
