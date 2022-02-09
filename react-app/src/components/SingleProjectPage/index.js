@@ -5,26 +5,27 @@ import {getSingleProject} from "../../store/singleProject"
 import CreateNewComment from "../CommentsForm";
 import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
-
+import {removeProjectThunk} from "../../store/singleProject"
+import { useHistory } from 'react-router-dom';
 
 
 const SingleProjectPage = () => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
 
     const {projectId}= useParams()
 
 
     const projects = useSelector(state => state.project)
-     
 
-    // const selectedProject = projects[projectId];
 
-    // const user = useSelector(state => state.session.user)
-    // const userId= user?.id
+    const selectedProject = projects[projectId];
 
-    // const preSession = selectedProject?.userId
-    // const sessionId = userId === preSession
+    const user = useSelector(state => state.session.user)
+    const userId= user?.id
+
+    const preSession = selectedProject?.userId
+    const sessionId = userId === preSession
 
     useEffect(()=>{
 
@@ -32,6 +33,15 @@ const SingleProjectPage = () => {
 
     }, [dispatch, projectId])
 
+    console.log('YESYEYSYES', projectId)
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+      const deleteInfo =dispatch(removeProjectThunk(projectId))
+      if(deleteInfo && sessionId){
+        history.push("/");
+      }
+    }
 
     return(
 
@@ -44,12 +54,15 @@ const SingleProjectPage = () => {
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
                 <StepsForProject projectsId={projects.id} data={projects.id} />
+                <div>
+          {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+    </div>
                 <CreateNewComment />
                 <CommentsList />
 
                 <StepsForProject />
                 {/* <CreateNewComment /> */}
-                <CommentsList/>
+                {/* <CommentsList/> */}
 
 
 
@@ -58,5 +71,6 @@ const SingleProjectPage = () => {
         </>
     )
 }
+
 
 export default SingleProjectPage;

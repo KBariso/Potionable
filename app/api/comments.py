@@ -34,6 +34,7 @@ def comment_form_submit():
                               user_id = current_user.id,
                               project_id = req_body["project_id"])
         db.session.add(new_comment)
+        
         db.session.commit()
         return new_comment.to_dict()
 

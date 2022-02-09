@@ -27,3 +27,10 @@ def get_all_projects():
     # return print('PRINT STATEMENT HERE', projects)
     # return projects.to_dict()
     return jsonify(projects)
+
+@projects.route("/<int:id>", methods=["DELETE"])
+def delete_project(id):
+    project = Project.query.get(id)
+    Project.query.filter(Project.id == id).delete()
+    db.session.commit()
+    return "True", 201
