@@ -8,7 +8,7 @@ import CreateNewComment from "../CommentsForm";
 
 const CommentsList = () => {
   const dispatch = useDispatch();
-  const user_id = useParams()
+  // const user_id = useParams()
   // console.log(user_id, "I AM COMMENTID!!!!!")
   // const userComment = commentId.user_id
   // console.log(userComment, "I AM THE USER COMMENT")
@@ -17,8 +17,8 @@ const CommentsList = () => {
   }, [dispatch]);
 
   const user = useSelector(state => state.session.user)
-  const userId = user.id
-  console.log(userId)
+  const userId = user?.id
+  // console.log(userId)
 //   const commentsObj = useSelector((state) => state.comments);
 //   console.log(commentsObj)
 //   const comments = Object.values(commentsObj);
@@ -37,7 +37,7 @@ const CommentsList = () => {
         {comments?.map((comment) => {
            return (
             <p>{comment.comment}
-            {comment.user_id === userId && <NavLink to={`/comments/${comment.id}/edit`}>Edit</NavLink>}
+            {comment.user_id === userId ? <NavLink to={`/comments/${comment.id}/edit`}>Edit</NavLink>: null}
             </p>
            )
         })}
