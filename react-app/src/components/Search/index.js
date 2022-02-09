@@ -12,22 +12,21 @@ const Search = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
 
-        const payload = {
-            search: search
+        // alert(search)
+        if (search === '') {
+            window.location.href = `/`
+        } else {
+            window.location.href = `/?searchKeyword=${search}`;
+
         }
-
-        dispatch(getSearch(payload))
-
-        setSearch('');
-
-        history.push(`/search/${search}`)
+        // history.push(`/?searchKeyword=${search}`)
     }
 
 
 
     return (
         <form onSubmit={handleSearch}>
-            <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Is this working?" />
+            <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's make..." />
         </form>
     )
 }
