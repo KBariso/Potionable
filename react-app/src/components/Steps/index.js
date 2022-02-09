@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {getSteps} from '../../store/step'
+import StepsManage from "../StepsManage";
 
 
 
@@ -21,7 +22,7 @@ const StepsForProject = ({projectsId}) => {
 
   });
 // const steps = useSelector(state => state.steps);
-  console.log("TEST FROM ALL PROJECTS", steps);
+//   console.log("TEST FROM ALL PROJECTS", steps);
 
   return (
 
@@ -35,6 +36,7 @@ const StepsForProject = ({projectsId}) => {
                   <>
               <div>{step.title}</div>
               <div>{step.body}</div>
+              <StepsManage stepzId={step.id} />
               </>
               );
               })}

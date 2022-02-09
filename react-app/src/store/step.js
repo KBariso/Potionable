@@ -1,7 +1,7 @@
 
 
 const GET = 'steps/GET';
-
+const REMOVE = 'steps/REMOVE'
 
 
 
@@ -10,6 +10,11 @@ const GET = 'steps/GET';
       type: GET,
       steps,
     });
+
+    const removeStep = stepId => ({
+        type: REMOVE,
+        stepId,
+      });
 
 
 
@@ -23,6 +28,17 @@ const GET = 'steps/GET';
 
         }
       };
+
+      export const deleteStep = (stepId) => async dispatch => {
+        const response = await fetch(`/api/steps/${stepId}`, {
+          method: 'DELETE',
+
+        })
+        if (response.ok) {
+          dispatch(removeStep(stepId))
+        //   return true
+        }
+      }
 
 
 
@@ -38,6 +54,11 @@ const GET = 'steps/GET';
                 })
                 return newState
                 }
+                case REMOVE: {
+                    const newState = { ...state };
+                    delete newState[ action.stepId];
+                    return newState;
+                  }
 
 
           default: {
