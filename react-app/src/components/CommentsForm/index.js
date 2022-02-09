@@ -15,6 +15,7 @@ const CreateNewComment = () => {
 
   const updateComment = (e) => setComment(e.target.value);
 
+
   useEffect(() => {
     const errors = [];
     if (!comment.length) {
@@ -22,6 +23,7 @@ const CreateNewComment = () => {
     }
     setErrors(errors);
   }, [comment]);
+
 
   // if (!user) return <Redirect to="/home" />;
 
