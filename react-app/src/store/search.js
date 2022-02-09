@@ -12,14 +12,14 @@ export const loadSearch = (payload) => ({
 
 // Thunks
 
-export const getSearch = (data) => async (dispatch) => {
-    const response = await fetch(`/api/search/${data.search}`)
+// export const getSearch = (data) => async (dispatch) => {
+//     const response = await fetch(`/api/search/${data.search}`)
 
-    if (response.ok) {
-        const searchResults = await response.json()
-        dispatch(loadSearch(searchResults))
-    }
-}
+//     if (response.ok) {
+//         const searchResults = await response.json()
+//         dispatch(loadSearch(searchResults))
+//     }
+// }
 
 
 const searchReducer = (state = {}, action) => {

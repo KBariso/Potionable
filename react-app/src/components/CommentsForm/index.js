@@ -26,7 +26,7 @@ const CreateNewComment = () => {
         setErrors(errors)
     },[comment])
 
-    if (!user) return <Redirect to="/home" />;
+    // if (!user) return <Redirect to="/home" />;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
