@@ -42,7 +42,7 @@ const EditComment = () => {
     const updatedPayload = {
         user_id:userId,
         comment,
-        project_id:projects,
+        // project_id:projects,
     };
 
     let updatedComment = await dispatch(editComment(updatedPayload));
