@@ -41,9 +41,9 @@ def comment_form_submit():
         return "Bad Data"
 
 
-@comments.route('/<commentId>/edit', methods=["PUT"])
+@comments.route('/<int:commentId>/edit', methods=["PUT"])
 def edit_comment(commentId):
-    comment = Comment.query.filter_by(id=commentId)
+    comment = Comment.query.filter_by(commentId=commentId)
     # print(comment, "I AM THE COMMENT")
     comment_body = request.json
     comment.comment = comment_body['comment']
