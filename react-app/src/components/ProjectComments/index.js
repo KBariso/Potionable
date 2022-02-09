@@ -4,6 +4,7 @@ import { useParams, NavLink } from "react-router-dom";
 // import { NavLink, Redirect } from "react-router-dom";
 import { getAllComments } from "../../store/comments";
 import CreateNewComment from "../CommentsForm";
+import DeleteComment from "../DeleteComment";
 
 
 const CommentsList = () => {
@@ -32,17 +33,22 @@ const CommentsList = () => {
 //   if (!user) return <Redirect to="/" />;
 
   return (
+
     <div className="commentsContainer">
+      <CreateNewComment />
       <h1 className="commentsHeader">All comments</h1>
         {comments?.map((comment) => {
            return (
-            <p>{comment.comment}
+            <p>
+              {comment.comment}
             {comment.user_id === userId ? <NavLink to={`/comments/${comment.id}/edit`}>Edit</NavLink>: null}
+            <DeleteComment commentId={comment.id} />
             </p>
+
            )
         })}
 
-      <CreateNewComment />
+
     </div>
   );
 };

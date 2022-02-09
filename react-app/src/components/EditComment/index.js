@@ -50,7 +50,7 @@ const EditComment = () => {
     // if (errors.length > 0) return;
 
     const updatedPayload = {
-        // id:commentId,
+        commentId,
         comment
         // project_id:projects,
     };

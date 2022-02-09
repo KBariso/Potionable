@@ -57,3 +57,12 @@ def edit_comment(id):
     comment.comment = comment_id['comment']
     db.session.commit()
     return jsonify(comment.comment)
+
+
+@comments.route("/<int:id>", methods=["DELETE"])
+def delete_comment(id):
+    comment = Comment.query.get(id)
+
+    db.session.delete(comment)
+    db.session.commit()
+    return 'ok'
