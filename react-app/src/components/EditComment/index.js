@@ -8,50 +8,40 @@ const EditComment = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const {commentId} = useParams()
-//   console.log(commentId)
-  const oneComment = useSelector((state) => state.comments);
-  const projectComment = oneComment[commentId].comment
-//   console.log(projectComment)
+  console.log(commentId, "I AM THE COMMENT ID!!!!")
+//   const {id} = useParams()
+//   console.log(id, "I AM THE ID!!!!")
+  const allComments = useSelector((state) => state.comments);
+  console.log(allComments, "I AM THE all COMMENTs")
+  const projectComment = allComments[commentId].comment
+  console.log(projectComment, "I AM THE PROJECT COMMENT")
 //   const user = useSelector(state => state.session.user?.id)
 //   const userId= user;
 
 
-      const [comment, setComment] = useState(oneComment[commentId].comment);
+      const [comment, setComment] = useState(projectComment);
       const [errors, setErrors] = useState([]);
 
       const updateComment = (e) => setComment(e.target.value);
 
 //   useEffect(() => {
-//     const errors = [];
-//     if (!comment.length) {
-//       errors.push("Comment on this project!");
-//     }
-//     setErrors(errors);
-//   }, [comment]);
-
-  // if (!user) return <Redirect to="/home" />;
-
-
-  useEffect(() => {
-        if (projectComment) {
-            setComment(projectComment);
-        }
-    }, [projectComment])
-
-
+//         if (projectComment) {
+//             setComment(projectComment);
+//         }
+//     }, [projectComment])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (errors.length > 0) return;
 
     const updatedPayload = {
-        commentId,
-        comment,
+        // id:commentId,
+        comment
         // project_id:projects,
     };
 
     let updatedComment = await dispatch(editComment(updatedPayload));
-    if (updatedComment) {
+    if (!updatedComment) {
         history.push(`/projects/1`)
     }
   };
@@ -80,5 +70,3 @@ const EditComment = () => {
 };
 
 export default EditComment;
-
-
