@@ -42,11 +42,11 @@ def comment_form_submit():
         return "Bad Data"
 
 
-@comments.route('/<int:commentId>/edit', methods=["PUT"], strict_slashes=False)
-def edit_comment(commentId):
-    comment = Comment.query.filter_by(commentId=commentId)
+@comments.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
+def edit_comment(id):
+    comment = Comment.query.filter_by(id=id).first()
     # print(comment, "I AM THE COMMENT")
-    comment_body = request.json
-    comment.comment = comment_body['comment']
+    comment_id = request.json
+    comment.comment = comment_id['comment']
     db.session.commit()
-    return jsonify(comment.to_dict())
+    return jsonify(comment.comment)

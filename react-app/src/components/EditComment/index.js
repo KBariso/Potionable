@@ -11,13 +11,13 @@ const EditComment = () => {
 //   console.log(commentId)
   const oneComment = useSelector((state) => state.comments);
   const projectComment = oneComment[commentId].comment
-//   console.log(projectComment)
+  console.log(oneComment.comment)
 //   const user = useSelector(state => state.session.user?.id)
 //   const userId= user;
 
 
       const [comment, setComment] = useState(oneComment[commentId].comment);
-      const [errors, setErrors] = useState([]);
+    //   const [errors, setErrors] = useState([]);
 
       const updateComment = (e) => setComment(e.target.value);
 
@@ -29,20 +29,20 @@ const EditComment = () => {
 //     setErrors(errors);
 //   }, [comment]);
 
-  // if (!user) return <Redirect to="/home" />;
+//   if (!user) return <Redirect to="/home" />;
 
 
-  useEffect(() => {
-        if (projectComment) {
-            setComment(projectComment);
-        }
-    }, [projectComment])
+//   useEffect(() => {
+//         if (projectComment) {
+//             setComment(projectComment);
+//         }
+//     }, [projectComment])
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (errors.length > 0) return;
+    // if (errors.length > 0) return;
 
     const updatedPayload = {
         commentId,
@@ -51,7 +51,7 @@ const EditComment = () => {
     };
 
     let updatedComment = await dispatch(editComment(updatedPayload));
-    if (updatedComment) {
+    if (!updatedComment) {
         history.push(`/projects/1`)
     }
   };
@@ -59,13 +59,13 @@ const EditComment = () => {
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        {errors.length > 0 && (
+        {/* {errors.length > 0 && (
           <ul className="errors">
             {errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
           </ul>
-        )}
+        )} */}
         <textarea
           className="commentInput"
           placeholder="Comment"
@@ -80,5 +80,3 @@ const EditComment = () => {
 };
 
 export default EditComment;
-
-
