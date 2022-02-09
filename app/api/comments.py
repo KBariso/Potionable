@@ -43,19 +43,12 @@ def comment_form_submit():
 
 
 
-@comments.route('/<int:id>/edit', methods=["PUT"])
+@comments.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
 def edit_comment(id):
-
-    form = NewComment()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-        comment = Comment.query.get(id)
-        print(comment.comment, "I AM THE COMMENT")
-        # comment_body = request.json
-        comment.comment = form['comment'].data
-        print(comment.comment, "I AM THE COMMENT UPDATE!!!!")
-        db.session.add(comment)
-        db.session.commit()
-        return jsonify(comment)
+    comment = Comment.query.filter_by(id=id).first()
+    # print(comment, "I AM THE COMMENT")
+    comment_id = request.json
+    comment.comment = comment_id['comment']
+    db.session.commit()
+    return jsonify(comment.comment)
 

@@ -8,31 +8,46 @@ const EditComment = () => {
   const dispatch = useDispatch();
   const history = useHistory()
   const {commentId} = useParams()
-  console.log(commentId, "I AM THE COMMENT ID!!!!")
-//   const {id} = useParams()
-//   console.log(id, "I AM THE ID!!!!")
-  const allComments = useSelector((state) => state.comments);
-  console.log(allComments, "I AM THE all COMMENTs")
-  const projectComment = allComments[commentId].comment
-  console.log(projectComment, "I AM THE PROJECT COMMENT")
+
+//   console.log(commentId)
+  const oneComment = useSelector((state) => state.comments);
+  const projectComment = oneComment[commentId].comment
+  console.log(oneComment.comment)
+
 //   const user = useSelector(state => state.session.user?.id)
 //   const userId= user;
 
 
-      const [comment, setComment] = useState(projectComment);
-      const [errors, setErrors] = useState([]);
+
+      const [comment, setComment] = useState(oneComment[commentId].comment);
+    //   const [errors, setErrors] = useState([]);
+
 
       const updateComment = (e) => setComment(e.target.value);
 
 //   useEffect(() => {
+
+//     const errors = [];
+//     if (!comment.length) {
+//       errors.push("Comment on this project!");
+//     }
+//     setErrors(errors);
+//   }, [comment]);
+
+//   if (!user) return <Redirect to="/home" />;
+
+
+//   useEffect(() => {
+
 //         if (projectComment) {
 //             setComment(projectComment);
 //         }
 //     }, [projectComment])
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (errors.length > 0) return;
+    // if (errors.length > 0) return;
 
     const updatedPayload = {
         // id:commentId,
@@ -49,13 +64,13 @@ const EditComment = () => {
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        {errors.length > 0 && (
+        {/* {errors.length > 0 && (
           <ul className="errors">
             {errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
           </ul>
-        )}
+        )} */}
         <textarea
           className="commentInput"
           placeholder="Comment"
