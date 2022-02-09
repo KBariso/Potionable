@@ -41,8 +41,8 @@ const SingleProjectPage = () => {
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
                 <StepsForProject />
-                <CreateNewComment />
-                <CommentsList />
+                {/* <CreateNewComment /> */}
+                <CommentsList/>
 
 
             </div>
