@@ -53,8 +53,8 @@ def comment_form_submit():
 def edit_comment(id):
     comment = Comment.query.filter_by(id=id).first()
     # print(comment, "I AM THE COMMENT")
-    comment_id = request.json
-    comment.comment = comment_id['comment']
+    comment_id = request.json["comment_id"]
+    comment.comment = request.json['comment']
     db.session.commit()
     return jsonify(comment.comment)
 
