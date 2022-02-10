@@ -16,7 +16,7 @@ import StepsForProject from './components/Steps'
 import AllProjects from './components/AllProjects';
 import { authenticate } from './store/session';
 import EditComment from './components/EditComment';
-import EditProjects from './components/EditProjects';
+// import EditProjects from './components/EditProjects';
 import CreateNewProject from './components/CreateProject';
 
 function App() {
@@ -68,9 +68,9 @@ function App() {
         <Route path="/comments/:commentId/edit">
           <EditComment />
         </Route>
-         <Route path="/projects/:projectId/edit">
+         {/* <Route path="/projects/:projectId/edit">
           <EditProjects />
-        </Route>
+        </Route> */}
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>

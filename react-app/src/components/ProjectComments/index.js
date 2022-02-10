@@ -5,6 +5,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { getAllComments } from "../../store/comments";
 import CreateNewComment from "../CommentsForm";
 import DeleteComment from "../DeleteComment";
+import EditComment from "../EditComment";
 
 const CommentsList = () => {
   const dispatch = useDispatch();
@@ -42,8 +43,9 @@ const CommentsList = () => {
         return (
           <div>
             {comment.project_id == projectId ? <p>{comment.comment}</p> : null}
-            {comment.user_id === userId && comment.project_id == projectId ? (
-              <NavLink to={`/comments/${comment.id}/edit`}>Edit</NavLink>) : null}
+            {comment.user_id === userId && comment.project_id == projectId ?
+                 <EditComment commentsProp={comment}/> : null}
+            {/* <EditComment commentsProp={comment}/> */}
             <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
           </div>
         );
