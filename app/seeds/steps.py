@@ -224,6 +224,27 @@ def seed_steps():
         body = 'Stir your mixture 5 times, counter-clockwise. Wave your wand around the cauldron to complete the potion. You\'re done!',
         project_id = 1
     )
+    wolf1 = Step(
+        title = 'Ingredients',
+        body = 'For this potion, you will need: 1 hair of a Northern Rocky Mounain Wolf, 1 hair of user, lavender, soil, water',
+        project_id = 1
+    )
+    wolf2 = Step(
+        title = 'Grind',
+        body = 'With a mortar and pestle, grind all ingredients into a paste. If it is too dry, the soil is not good',
+        project_id = 1
+    )
+    wolf3 = Step(
+        title = 'Mix',
+        body = 'Mix paste into water. Dilute until drinkable',
+        project_id = 1
+    )
+    wolf1 = Step(
+        title = 'Drink',
+        body = 'On a full moon, drink the concoction. The second full moon that comes, be far away from loved ones. WARNING: You must drink ALL of it on one go. This is to ensure it enters the body at full potency.',
+        project_id = 1
+    )
+
 
 
 

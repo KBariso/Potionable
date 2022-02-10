@@ -73,13 +73,43 @@ def seed_projects():
         media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUhXl30xtdERimASBSlFEZewY6VlB06Tnlg&usqp=CAU",
         user_id=1
     )
+    werewolf = Project(
+        title="Hair of the Wolf",
+        description="Tired of just staring at the moon? Now you can howl at it.",
+        media_url="https://jayengrave.com/images/products/500ml_wolfsbane_the_lost_crow_brown_glass_apothecary_lamp_01.jpg",
+        user_id=1
+    )
+    witcher = Project(
+        title="Witcher Switcher",
+        description="You might not look as good as Henry Cavill when you drink this, but you can be just as strong.",
+        media_url="https://static.wikia.nocookie.net/witcher/images/8/85/Gwent_cardart_neutral_black_blood.png/revision/latest?cb=20190719034052",
+        user_id=1
+    )
+    lookYoung = Project(
+        title="Ye ol' Benjamin Button",
+        description="Want to reverse time? Look good? Well now you can! Stay young!....but not forever (results may vary).",
+        media_url="https://i.pinimg.com/736x/c6/1d/d2/c61dd26609caf917026af0291071b796--stay-young-fantasy-world.jpg",
+        user_id=1
+    )
+    lookOld = Project(
+        title="Benjie Button Switcharoo",
+        description="Tired of people saying you look like you're 10? With this you can be older!! (Drink with caution. Results may vary)",
+        media_url="https://images.creativemarket.com/0.1.0/ps/3984821/1820/1213/m1/fpnw/wm1/qunovbtwvq76vcngyl9igahb5nxiitmkhsvix3lahhmjvoxwt6dbplphn0zend7r-.jpg?1518308347&s=2f3d2c4ad861c1228ce25d35cf889ee0",
+        user_id=1
+    )
+    apple = Project(
+        title="Snow Whites Apple",
+        description="Drinking a potion can be a drag! Take a bite out of this (Pre-cursed Recipe)",
+        media_url="https://static.wikia.nocookie.net/disney/images/e/e8/Poisoned_apple.jpg/revision/latest?cb=20070709213747",
+        user_id=1
+    )
 
 
 
 #     db.session.add(harry_potter)
 #     db.session.add(harry_potter2)
 #     db.session.add(harry_potter3)
-    
+
 
 
     # db.session.add(harry_potter)
@@ -92,7 +122,11 @@ def seed_projects():
     db.session.add(eleusinian_mysteries1)
     db.session.add(alien_spaceship)
     db.session.add(gandoff)
-    db.session.add(ron)
+    db.session.add(werewolf)
+    db.session.add(witcher)
+    db.session.add(lookYoung)
+    db.session.add(lookOld)
+    db.session.add(apple)
 
 
     db.session.commit()
