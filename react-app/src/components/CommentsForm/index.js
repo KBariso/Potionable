@@ -6,7 +6,7 @@ import { createNewComment } from "../../store/comments";
 const CreateNewComment = () => {
   const dispatch = useDispatch();
   const projects = useSelector(state => state.project.id);
-  console.log(projects, "HEllooo")
+  // console.log(projects, "HEllooo")
   const user = useSelector(state => state.session.user?.id)
   const userId= user;
 
