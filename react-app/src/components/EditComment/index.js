@@ -11,8 +11,9 @@ const EditComment = () => {
 
 //   console.log(commentId)
   const oneComment = useSelector((state) => state.comments);
-  const projectComment = oneComment[commentId].comment
-  console.log(oneComment.comment)
+  console.log(oneComment[commentId].user_id, "I AM THE ONE COMENNT")
+  const projectId = oneComment[commentId].project_id
+  // console.log(oneComment.comment)
 
 //   const user = useSelector(state => state.session.user?.id)
 //   const userId= user;
@@ -57,7 +58,7 @@ const EditComment = () => {
 
     let updatedComment = await dispatch(editComment(updatedPayload));
     if (!updatedComment) {
-        history.push(`/projects/1`)
+        history.push(`/projects/${projectId}`)
     }
   };
 

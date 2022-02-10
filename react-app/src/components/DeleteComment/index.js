@@ -9,6 +9,8 @@ const DeleteComment = ({commentId}) => {
     const dispatch= useDispatch()
     const user = useSelector(state => state.session.user);
     const userId = user?.id
+    const oneComment = useSelector((state) => state.comments);
+    const commentUser= oneComment[commentId].user_id
 
 
     const theCommentId = useSelector((state) => {
@@ -16,6 +18,7 @@ const DeleteComment = ({commentId}) => {
        const filtered= stepsArray.filter(step => step.id === commentId)
        return filtered
     })
+    // console.log(theCommentId)
 
 
 
@@ -34,7 +37,7 @@ const handleDelete = (e) => {
 
 return (
     <div>
-          {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
+          {(userId === commentUser) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
     </div>
   );
 
