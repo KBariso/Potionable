@@ -38,3 +38,14 @@ def delete_project(id):
     db.session.commit()
     # return "True", 201
     return flask.redirect("/")
+
+
+@projects.route('/<id>/edit', methods=["PUT"])
+def edit_project(id):
+    # project = Project.query.filter_by(id=id).first()
+    # # print(comment, "I AM THE COMMENT")
+    # project_id = request.json
+    # # project.project = project_id['project']
+    # db.session.commit()
+    # return jsonify(project.project)
+    form= 
