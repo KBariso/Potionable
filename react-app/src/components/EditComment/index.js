@@ -55,7 +55,7 @@ const EditComment = () => {
         comment
         // project_id:projects,
     };
-
+    
     let updatedComment = await dispatch(editComment(updatedPayload));
     if (!updatedComment) {
         history.push(`/projects/${projectId}`)

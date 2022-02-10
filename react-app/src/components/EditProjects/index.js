@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import {editProjects} from "../../store/singleProject"
 
 
-const EditProjects = ({projectsProp}) => {
+const EditProjects = ({projectsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
   const {projectId} = useParams()
@@ -28,11 +28,13 @@ const EditProjects = ({projectsProp}) => {
 
     };
 
-    // if(title)
-    let updatedProject = await dispatch(editProjects(updatedPayload));
-    if (!updatedProject) {
-        history.push(`/projects/${projectsProp.id}`)
-    }
+
+     dispatch(editProjects(updatedPayload));
+
+        hideForm();
+        window.location.reload();
+   
+
   };
 
   return (
