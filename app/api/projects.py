@@ -16,19 +16,11 @@ def project(id):
 
 # TODO: Get all projects (Displays on the splash page)
 @projects.route('/', methods=['GET'], strict_slashes=False)
-
-
-
 def get_all_projects():
-    # projects = Project.query.all()
-    # print(projects, 'look here')
-    # return {'projects': [project.to_dict() for project in projects]}
-    projects = [project.to_dict() for project in Project.query.all()]
+    projects = Project.query.all()
+    return {'projects': [project.to_dict() for project in projects]}
 
 
-    # return print('PRINT STATEMENT HERE', projects)
-    # return projects.to_dict()
-    return jsonify(projects)
 
 @projects.route("/<int:id>", methods=["DELETE"])
 def delete_project(id):

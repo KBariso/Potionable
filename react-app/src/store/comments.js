@@ -77,6 +77,7 @@ const deleteOneComment = (commentId) => ({
 const initialState = {};
 const commentsReducer = (state = initialState, action) => {
     let newState = {};
+    // alert(JSON.stringify(action))
     switch (action.type) {
         case GET_ALL_COMMENTS:
             action.comments.forEach(comment => {
