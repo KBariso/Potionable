@@ -37,7 +37,7 @@ const handleDelete = (e) => {
 
 }
 // (userId === commentUser && commentsProjectId === projectId) &&
-
+console.log("HIII")
 return (
     <div>
           {(userId== commentUserId && commentsProjectId == projectId) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}

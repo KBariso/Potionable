@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams} from "react-router-dom";
 import {getSingleProject} from "../../store/singleProject"
@@ -20,7 +20,7 @@ const SingleProjectPage = () => {
     const history = useHistory();
 
     const {projectId}= useParams()
-
+    const [edit, setEdit] = useState(false);
 
     const projects = useSelector(state => state.project)
 
@@ -61,7 +61,9 @@ const SingleProjectPage = () => {
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
                 {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
-                <EditProjects key={projects.id} projectsProp={projects}/>
+                {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
+
+                {edit && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
                 <StepsForProject projectsId={projects.id} data={projects.id} />
                 <div>
           {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
