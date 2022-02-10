@@ -38,6 +38,7 @@ export const createNewProject = (project) => async (dispatch) => {
     const res = await fetch(`/api/projects/new`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        'Accept': 'application/json',
         body: JSON.stringify(project)
     })
     if (res.ok) {
@@ -57,17 +58,21 @@ export const removeProjectThunk = (projectId) => async (dispatch) => {
     }
   };
 
-  export const editProjects = ({projectId, project}) => async (dispatch) => {
+  export const editProjects = ({projectId, title, description, media_url}) => async (dispatch) => {
     const res = await fetch(`/api/projects/${projectId}/edit`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({projectId, project})
+        body: JSON.stringify({projectId, title, description, media_url})
     })
+
     if (res.ok) {
+        // console.log(res.status, "THIS IS RES STATUS HCJEHcfvf")
         const updatedProject = await res.json();
+        // console.log(updatedProject,"updatedduwebfeij")
         dispatch(updateProject(updatedProject));
       }
 }
+
 
 
 // const initialState={};

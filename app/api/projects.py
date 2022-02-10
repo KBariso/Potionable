@@ -69,12 +69,20 @@ def delete_project(id):
     return flask.redirect("/")
 
 
-@projects.route('/<id>/edit', methods=["PUT"])
+@projects.route('/<id>/edit', methods=["PUT"], strict_slashes=False)
 def edit_project(id):
-    # project = Project.query.filter_by(id=id).first()
-    # # print(comment, "I AM THE COMMENT")
-    # project_id = request.json
-    # # project.project = project_id['project']
-    # db.session.commit()
-    # return jsonify(project.project)
-    form= 
+    form = NewProject()
+    project= Project.query.get(id)
+
+    # return project.to_dict()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        print(project, "KEVIN")
+        project.title= form.data['title']
+        project.description= form.data['description']
+        project.media_url= form.data['media_url']
+
+        db.session.commit()
+        # return jsonify(project)
+        return project.to_dict()
+    return {'errors':'form not good'}
