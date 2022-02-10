@@ -10,9 +10,6 @@ const AllProjects = () => {
   const [searchKeyword, setSearchKeyword] = useState(myParam? myParam: '');
   const [projects, setProjects] = useState([])
 
-  // useEffect(() => {
-  //   dispatch(getAllProjects());
-  // }, [dispatch]);
 
   // const search = () => async (dispatch) => {
   const search = async function() {
@@ -30,14 +27,17 @@ const AllProjects = () => {
     search()
   }, [searchKeyword])
 
+  // useEffect(() => {
+  //   dispatch(getAllProjects());
+  // }, [dispatch]);
 
 
-  // const projects = useSelector((state) => {
+  // const projects_two = useSelector((state) => {
   //   console.log('>>>>>>>PROJECT State>>>>', state.projects)
   //   // Makes an array to map through later:
   //   return Object.values(state.projects);
   // });
-  // console.log("TEST FROM ALL PROJECTS", projects);
+  // console.log("TEST FROM ALL PROJECTS", projects_two);
 
   return (
     <div>
@@ -50,6 +50,13 @@ const AllProjects = () => {
           <img src={project.media_url} alt='alt' />
         </Link>
       ))}
+      {/* {projects_two?.map((project) => (
+        <Link key={project.id} to={`/projects/${project.id}`}>
+
+          <p> {project.title} </p>
+          <img src={project.media_url} alt='alt' />
+        </Link>
+      ))} */}
     </div>
   );
 };
