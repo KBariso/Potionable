@@ -4,9 +4,9 @@
 const GET_ALL_PROJECTS = "projects/GET_ALL_PROJECTS";
 
 // Action creators:
-export const loadProjects = (projects) => ({
+export const loadProjects = (res) => ({
     type: GET_ALL_PROJECTS,
-    projects,
+    res,
 })
 
 
@@ -29,7 +29,8 @@ const allProjectsReducer = (state = {} , action) => {
 
     switch (action.type) {
         case GET_ALL_PROJECTS: {
-            action.projects.forEach(project => {
+            console.log(JSON.stringify(action))
+            action.res.projects.forEach(project => {
                 newState[project.id] = project;
             })
             return newState

@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   projects:allProjectsReducer,
   comments: commentsReducer,
   search: searchReducer,
-  steps: stepReducer,
+  steps: stepReducer
 
 });
 

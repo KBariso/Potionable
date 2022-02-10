@@ -7,8 +7,12 @@ import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
 import {removeProjectThunk} from "../../store/singleProject"
 import { useHistory } from 'react-router-dom';
+
+import StepForm from "../StepsForm";
+
 import { NavLink } from "react-router-dom";
 import EditProjects from "../EditProjects";
+
 
 
 const SingleProjectPage = () => {
@@ -63,6 +67,7 @@ const SingleProjectPage = () => {
           {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
     </div>
                 {/* <CreateNewComment /> */}
+                <StepForm />
                 <CommentsList />
 
                 <StepsForProject />
