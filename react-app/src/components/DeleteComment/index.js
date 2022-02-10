@@ -1,14 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {deleteComment} from '../../store/comments'
 
 
 const DeleteComment = ({commentId}) => {
     const history = useHistory();
     const dispatch= useDispatch()
+    const { projectId } = useParams()
+    console.log(projectId)
     const user = useSelector(state => state.session.user);
     const userId = user?.id
+    const oneComment = useSelector((state) => state.comments);
+    const commentUser= oneComment[commentId].user_id
+    const commentsProjectId = oneComment[commentId].project_id
 
 
     const theCommentId = useSelector((state) => {
@@ -16,6 +21,7 @@ const DeleteComment = ({commentId}) => {
        const filtered= stepsArray.filter(step => step.id === commentId)
        return filtered
     })
+    // console.log(theCommentId)
 
 
 
@@ -34,7 +40,7 @@ const handleDelete = (e) => {
 
 return (
     <div>
-          {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
+          {(userId === commentUser && commentsProjectId === projectId) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
     </div>
   );
 

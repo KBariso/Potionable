@@ -7,7 +7,12 @@ import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
 import {removeProjectThunk} from "../../store/singleProject"
 import { useHistory } from 'react-router-dom';
+
 import StepForm from "../StepsForm";
+
+import { NavLink } from "react-router-dom";
+import EditProjects from "../EditProjects";
+
 
 
 const SingleProjectPage = () => {
@@ -55,6 +60,8 @@ const SingleProjectPage = () => {
                 </div>
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
+                {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
+                <EditProjects key={projects.id} projectsProp={projects}/>
                 <StepsForProject projectsId={projects.id} data={projects.id} />
                 <div>
           {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
