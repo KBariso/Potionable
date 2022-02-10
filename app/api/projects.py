@@ -50,8 +50,6 @@ def get_all_projects():
     # print(projects, 'look here')
     # return {'projects': [project.to_dict() for project in projects]}
     projects = [project.to_dict() for project in Project.query.all()]
-
-
     # return print('PRINT STATEMENT HERE', projects)
     # return projects.to_dict()
     return jsonify(projects)
@@ -77,7 +75,6 @@ def edit_project(id):
     # return project.to_dict()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print(project, "KEVIN")
         project.title= form.data['title']
         project.description= form.data['description']
         project.media_url= form.data['media_url']

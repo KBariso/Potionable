@@ -44,7 +44,7 @@ const CommentsList = () => {
             {comment.project_id == projectId ? <p>{comment.comment}</p> : null}
             {comment.user_id === userId && comment.project_id == projectId ? (
               <NavLink to={`/comments/${comment.id}/edit`}>Edit</NavLink>) : null}
-            <DeleteComment commentId={comment.id} />
+            <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
           </div>
         );
       })}
