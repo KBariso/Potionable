@@ -2,6 +2,7 @@ import React, { useEffect,useState } from "react";
 import { useDispatch} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import {editProjects} from "../../store/singleProject"
+import './EditProject.css'
 
 
 const EditProjects = ({projectsProp, hideForm}) => {
@@ -12,13 +13,13 @@ const EditProjects = ({projectsProp, hideForm}) => {
       const [title, setTitle] = useState(projectsProp.title);
       const [description, setDescription]= useState(projectsProp.description)
       const [media_url, setMedia]= useState(projectsProp.media_url)
-
+      const [errors, setErrors] = useState([]);
     console.log(projectsProp, "ONEPROENRIFNEIFNE")
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setErrors([])
 
     const updatedPayload = {
         projectId,
@@ -29,17 +30,26 @@ const EditProjects = ({projectsProp, hideForm}) => {
     };
 
 
-     dispatch(editProjects(updatedPayload));
+     let updateProject= dispatch(editProjects(updatedPayload));
 
         hideForm();
         window.location.reload();
-   
+
+        // if (updateProject) {
+        //     setErrors(updateProject);
+        // }
+
 
   };
 
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
+      {/* <ul>
+        {errors.map((error) => (
+          <li id='errorLi' key={error}>{error}</li>
+         ))}
+                </ul> */}
         <textarea
           className="projectInput"
           placeholder={title}
