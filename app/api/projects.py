@@ -72,7 +72,6 @@ def edit_project(id):
     # return project.to_dict()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print(project, "KEVIN")
         project.title= form.data['title']
         project.description= form.data['description']
         project.media_url= form.data['media_url']

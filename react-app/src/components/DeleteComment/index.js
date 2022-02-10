@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import {deleteComment} from '../../store/comments'
 
 
-const DeleteComment = ({commentId}) => {
+const DeleteComment = ({commentId, commentUserId}) => {
     const history = useHistory();
     const dispatch= useDispatch()
     const { projectId } = useParams()
@@ -36,11 +36,11 @@ const handleDelete = (e) => {
   }
 
 }
-
+// (userId === commentUser && commentsProjectId === projectId) &&
 
 return (
     <div>
-          {(userId === commentUser && commentsProjectId === projectId) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
+          {userId== commentUserId &&  <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
     </div>
   );
 
