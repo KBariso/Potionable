@@ -71,7 +71,7 @@ const SingleProjectPage = () => {
                 {/* <CreateNewComment /> */}
                 <StepForm />
                 <CommentsList />
-                
+
 
                 <StepsForProject />
                 {/* <CreateNewComment /> */}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 // import { NavLink, Redirect } from "react-router-dom";
@@ -22,18 +22,21 @@ const CommentsList = () => {
 
   const user = useSelector((state) => state.session.user);
   const userId = user?.id;
-  // console.log(userId)
-  //   const commentsObj = useSelector((state) => state.comments);
-  //   console.log(commentsObj)
+  const [edit, setEdit] = useState(false);
+
+    // const commentsObj = useSelector((state) => state.comments);
+    // console.log(Object.values(commentsObj.id), "COMMENTS OBJ")
   //   const comments = Object.values(commentsObj);
-  //   const projectComments = comments.filter((comment) => comment.projectId === user);
-  //   console.log(comments)
   const comments = useSelector((state) => {
-    // console.log(state.comments, "HELLLOOOOO")
     return Object.values(state.comments);
   });
-  console.log(comments, "I AM THE COMMENTS");
+  // console.log(comments, "I AM THE COMMENTS");
+  //   const projectComments = comments.filter((comment) => comment.comment == user);
+  //   console.log(projectComments)
   //   if (!user) return <Redirect to="/" />;
+
+  // const comment = useSelector(state => state.comments)
+  // console.log(comment.comment)
 
   return (
     <div className="commentsContainer">
@@ -43,9 +46,11 @@ const CommentsList = () => {
         return (
           <div>
             {comment.project_id == projectId ? <p>{comment.comment}</p> : null}
-            {comment.user_id === userId && comment.project_id == projectId ?
-                 <EditComment commentsProp={comment}/> : null}
+            {/* {comment.user_id === userId && comment.project_id == projectId ?
+                 <EditComment commentsProp={comment}/> : null} */}
             {/* <EditComment commentsProp={comment}/> */}
+            {( !edit) && comment.user_id === userId && comment.project_id == projectId ? <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button> : null}
+            {edit && comment.user_id === userId && comment.project_id == projectId ? <EditComment commentsProp={comment} hideForm={() => setEdit(false)}/> : null}
             <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
           </div>
         );

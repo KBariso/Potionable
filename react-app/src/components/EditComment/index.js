@@ -4,14 +4,14 @@ import { useHistory, useParams } from "react-router-dom";
 import { editComment, getAllComments } from "../../store/comments";
 import { NavLink } from "react-router-dom";
 
-const EditComment = ({commentsProp}) => {
+const EditComment = ({commentsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
   const commentId = commentsProp.id
   const projectId = commentsProp.project_id
-  console.log(commentId, "I AM THE COMMENT ID!!!!!!!!!!")
-  console.log(projectId, "I AM THE PROJECTID!!!!")
-  console.log(commentsProp, "I AM THE COMMENT!!!!")
+  // console.log(commentId, "I AM THE COMMENT ID!!!!!!!!!!")
+  // console.log(projectId, "I AM THE PROJECTID!!!!")
+  // console.log(commentsProp, "I AM THE COMMENT!!!!")
 
 
       const [comment, setComment] = useState(commentsProp.comment);
@@ -20,9 +20,9 @@ const EditComment = ({commentsProp}) => {
       const updateComment = (e) => setComment(e.target.value);
 
 
-      useEffect(() => {
-        dispatch(getAllComments());
-    }, [dispatch]);
+    //   useEffect(() => {
+    //     dispatch(getAllComments());
+    // }, [dispatch]);
 
 
 
@@ -44,10 +44,16 @@ const EditComment = ({commentsProp}) => {
         comment_id:commentId,
         comment
     };
-    
+
+
+    dispatch(editComment(updatedPayload))
+
+
+
     let updatedComment = await dispatch(editComment(updatedPayload));
     if (!updatedComment) {
         history.push(`/projects/${projectId}`)
+        hideForm();
         window.location.reload();
 
     }
