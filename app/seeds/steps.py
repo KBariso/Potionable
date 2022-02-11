@@ -227,23 +227,139 @@ def seed_steps():
     wolf1 = Step(
         title = 'Ingredients',
         body = 'For this potion, you will need: 1 hair of a Northern Rocky Mounain Wolf, 1 hair of user, lavender, soil, water',
-        project_id = 1
+        project_id = 10
     )
     wolf2 = Step(
         title = 'Grind',
         body = 'With a mortar and pestle, grind all ingredients into a paste. If it is too dry, the soil is not good',
-        project_id = 1
+        project_id = 10
     )
     wolf3 = Step(
         title = 'Mix',
         body = 'Mix paste into water. Dilute until drinkable',
-        project_id = 1
+        project_id = 10
     )
     wolf4 = Step(
         title = 'Drink',
-        body = 'On a full moon, drink the concoction. The second full moon that comes, be far away from loved ones. WARNING: You must drink ALL of it on one go. This is to ensure it enters the body at full potency.',
-        project_id = 1
+        body = 'On a full moon, drink the concoction. The second full moon that comes, be far away from loved ones. WARNING: You must drink ALL of it on one go. It will be disgusting. This is to ensure it enters the body at full potency.',
+        project_id = 10
     )
+    witcher1 = Step(
+        title = 'Items Needed',
+        body = 'Veratrum, Stamonium, Hawthorn, and Spurge',
+        project_id = 11
+    )
+    witcher2 = Step(
+        title = 'Step 1',
+        body = 'Assuming that you have survived getting these items: n\
+                boil all the ingredients in a couldron EXCEPT the Stamonium',
+        project_id = 11
+    )
+    witcher3 = Step(
+        title = 'Step 2',
+        body = 'Strip the Stamonium of its leaves and grind up the flower',
+        project_id = 11
+    )
+    witcher4 = Step(
+        title = 'Step 3',
+        body = 'Once the initial items have been boiled down to a syrup, mix everything together in a vial',
+        project_id = 11
+    )
+    witcher5 = Step(
+        title = 'Step 4',
+        body = 'Prepare for your next encounter until you meet a monster, go to war, or a deceitful human. Only then can you drink the potion',
+        project_id = 11
+    )
+    young1 = Step(
+        title = 'Items Needed',
+        body = 'The first tooth that fell out when you were young, abyssal soul, elixir, and aloe vera',
+        project_id = 12
+    )
+    young2 = Step(
+        title = 'First step:',
+        body = 'In a small pot, cut up the aloe vera and scrape its aloe into the pot, you will need about 1 cup',
+        project_id = 12
+    )
+    young3 = Step(
+        title = 'Second Step:',
+        body = 'Take your first tooth, and grind it up to a powder. Mix into the aloe vera',
+        project_id = 12
+    )
+    young4 = Step(
+        title = 'Third Step:',
+        body = 'With the elixir, fold into the aloe vera. At this point the concoction should be a very thick paste',
+        project_id = 12
+    )
+    young5 = Step(
+        title = 'Fourth Step:',
+        body = 'This is the most crucial step. The abyssal soul that is trapped in a vial already, you must open and store the paste mixture inside with it. Doing it slowly will possibly cause the soul to escape',
+        project_id = 12
+    )
+    young6 = Step(
+        title = 'Final Step',
+        body = 'If all is done correctly, shake the vial. You will notice the potion is now a liquid, not a paste. n\
+                Caution: DO NOT DRINK ALL AT ONCE. WILL CAUSE PERMANENT AGE REVERSAL',
+        project_id = 12
+    )
+    old1 = Step(
+        title = 'Ingredients Needed',
+        body = 'A tooth of an ancestor, abyssal soul, elixir, and sand',
+        project_id = 13
+    )
+    old2 = Step(
+        title = 'First Step',
+        body = 'Take the tooth of your ancestor, and grind it up to a powder. Mix into the sand to create a dry powder',
+        project_id = 13
+    )
+    old3 = Step(
+        title = 'Second Step',
+        body = 'Mix in elixir with the dry powder',
+        project_id = 13
+    )
+    old4 = Step(
+        title = 'Third Step',
+        body = 'Boil the ingredients in a couldron',
+        project_id = 13
+    )
+    old5 = Step(
+        title = 'Fourth Step',
+        body = 'Like the counterpart of this potion, quickly store the boiled items in the vial of the abyssal soul',
+        project_id = 13
+    )
+    old6 = Step(
+        title = 'Final Step',
+        body = 'Shake the vial and drink with caution. n\
+                CAUTION: DO NOT DRINK ALL AT ONCE. WILL TURN YOU INTO A BABY',
+        project_id = 13
+    )
+    apple1 = Step(
+        title = 'Ingredients:',
+        body = 'Rotted apple, Witching spell, Caramel',
+        project_id = 14
+    )
+    apple2 = Step(
+        title = 'Enchantment',
+        body = 'Assuming that you have either captured a witch, friends with one, or are one: n\
+                In the book of One Trick Witches vol. 8, on page 43, recite the spell in front of the rotted apple',
+        project_id = 14
+    )
+    apple3 = Step(
+        title = 'Growth',
+        body = 'As soon as the spell is over, the apple will soon be fresh and bright red',
+        project_id = 14
+    )
+    apple4 = Step(
+        title = 'Flavor',
+        body = 'Dip in caramel for better flavor',
+        project_id = 14
+    )
+    apple5 = Step(
+        title = 'Givings',
+        body = 'Give to someone to certainly cast them into a spell that will light their tastebuds!',
+        project_id = 14
+    )
+
+
 
 
 
@@ -283,6 +399,33 @@ def seed_steps():
     db.session.add(forget4)
     db.session.add(forget5)
     db.session.add(forget6)
+    db.session.add(wolf1)
+    db.session.add(wolf2)
+    db.session.add(wolf3)
+    db.session.add(wolf4)
+    db.session.add(witcher1)
+    db.session.add(witcher2)
+    db.session.add(witcher3)
+    db.session.add(witcher4)
+    db.session.add(witcher5)
+    db.session.add(young1)
+    db.session.add(young2)
+    db.session.add(young3)
+    db.session.add(young4)
+    db.session.add(young5)
+    db.session.add(young6)
+    db.session.add(old1)
+    db.session.add(old2)
+    db.session.add(old3)
+    db.session.add(old4)
+    db.session.add(old5)
+    db.session.add(old6)
+    db.session.add(apple1)
+    db.session.add(apple2)
+    db.session.add(apple3)
+    db.session.add(apple4)
+    db.session.add(apple5)
+
 
     db.session.commit()
 

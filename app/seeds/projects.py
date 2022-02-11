@@ -82,8 +82,8 @@ def seed_projects():
     witcher = Project(
         title="Witcher Switcher",
         description="You might not look as good as Henry Cavill when you drink this, but you can be just as strong.",
-        media_url="https://static.wikia.nocookie.net/witcher/images/8/85/Gwent_cardart_neutral_black_blood.png/revision/latest?cb=20190719034052",
-        user_id=1
+        media_url="https://sites.create-cdn.net/siteimages/29/1/0/291047/16/5/1/16517022/500x375.JPG?1529420458",
+        user_id=2
     )
     lookYoung = Project(
         title="Ye ol' Benjamin Button",
@@ -95,13 +95,13 @@ def seed_projects():
         title="Benjie Button Switcharoo",
         description="Tired of people saying you look like you're 10? With this you can be older!! (Drink with caution. Results may vary)",
         media_url="https://images.creativemarket.com/0.1.0/ps/3984821/1820/1213/m1/fpnw/wm1/qunovbtwvq76vcngyl9igahb5nxiitmkhsvix3lahhmjvoxwt6dbplphn0zend7r-.jpg?1518308347&s=2f3d2c4ad861c1228ce25d35cf889ee0",
-        user_id=1
+        user_id=2
     )
     apple = Project(
-        title="Snow Whites Apple",
-        description="Drinking a potion can be a drag! Take a bite out of this (Pre-cursed Recipe)",
-        media_url="https://static.wikia.nocookie.net/disney/images/e/e8/Poisoned_apple.jpg/revision/latest?cb=20070709213747",
-        user_id=1
+        title="Snow Whites Apple (Pre-cursed Recipe)",
+        description="Drinking a potion can be a drag! Take a bite out of this",
+        media_url="https://live.staticflickr.com/5679/30528525832_53994976b4_b.jpg",
+        user_id=3
     )
 
 

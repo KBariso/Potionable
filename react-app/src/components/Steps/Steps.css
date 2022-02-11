@@ -1,0 +1,66 @@
+.AllSteps {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.allStepsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 40%;
+    max-width: 40%;
+}
+
+.stepBodyContainer {
+    display: flex;
+    justify-content: center;
+    border: solid 1px black;
+    background-color: rgb(230, 230, 230);
+
+}
+
+
+.stepsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: center;
+    /* border: solid black; */
+    /* text-align: left; */
+    /* background-color: greenyellow; */
+
+}
+
+/* .titleContainer {
+    padding-top: 10px;
+    /* display: flex;
+    flex-direction: column; */
+
+/*  */
+
+.stepTitle {
+    display: flex;
+    align-self: center;
+    font-size: larger;
+    font-weight:bold;
+    padding: 3px;
+}
+
+.stepBody {
+    /* background-color: goldenrod; */
+
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(230, 230, 230); */
+    margin: 7px;
+    /* border: solid black; */
+    border-radius: 5px;
+    padding: 40px;
+    display: block;
+    word-wrap: break-word;
+    overflow: auto;
+    text-align: center;
+
+}

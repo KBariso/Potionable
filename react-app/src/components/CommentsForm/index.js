@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewComment } from "../../store/comments";
+import './CommentsForm.css'
 
 
 const CreateNewComment = () => {
@@ -47,21 +48,27 @@ const CreateNewComment = () => {
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        {errors.length > 0 && (
-          <ul className="errors">
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        )}
-        <textarea
-          className="commentInput"
-          placeholder="Comment"
-          type="text"
-          value={comment}
-          onChange={updateComment}
-        />
-        <button type="submit">Submit</button>
+        <div className="formContainer">
+          {errors.length > 0 && (
+            <ul className="errors">
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
+        <div className="textContainer">
+            <textarea
+              className="commentInput"
+              placeholder="Comment"
+              type="text"
+              value={comment}
+              onChange={updateComment}
+            />
+        </div>
+
+        </div>
+        <button className="submitCommentBttn" type="submit">Create Comment</button>
+
       </form>
     </div>
   );
