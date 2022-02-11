@@ -6,7 +6,11 @@ import { getAllComments } from "../../store/comments";
 import CreateNewComment from "../CommentsForm";
 import DeleteComment from "../DeleteComment";
 import EditComment from "../EditComment";
+
+import './ProjectComments.css'
+
 import CommentFunctions from "../CommentFunctions";
+
 
 const CommentsList = ({hideForm, projectId}) => {
   const dispatch = useDispatch();
@@ -40,6 +44,25 @@ const CommentsList = ({hideForm, projectId}) => {
 
   return (
     <div className="commentsContainer">
+
+//       <h1 className="commentsHeader">All comments</h1>
+//       <div className="allCommentsContainer">
+//         {comments?.map((comment) => {
+//           return (
+//             <div className="singleCommentsContainer">
+//               {comment.project_id == projectId ? <p className="SingleComment">{comment.comment}</p> : null}
+//               <div className="EditandDelete">
+//                 {( !edit) && comment.user_id === userId && comment.project_id == projectId ? <button className="editCommentButton" onClick={() => setEdit(!edit)}>Edit Comment</button> : null}
+//                 {edit && comment.user_id === userId && comment.project_id == projectId ? <EditComment commentsProp={comment} hideForm={() => setEdit(false)}/> : null}
+//               <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
+//               </div>
+//             </div>
+//           );
+//         })}
+//       </div>
+
+//       <CreateNewComment />
+
       {/* <CreateNewComment /> */}
       <h1 className="commentsHeader">All comments</h1>
       {comments?.map((comment) => {
@@ -61,6 +84,7 @@ const CommentsList = ({hideForm, projectId}) => {
 
         );
       })}
+
     </div>
   );
 };

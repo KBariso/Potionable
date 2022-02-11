@@ -7,11 +7,10 @@ import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
 import {removeProjectThunk} from "../../store/singleProject"
 import { useHistory } from 'react-router-dom';
-
 import StepForm from "../StepsForm";
-
 import { NavLink } from "react-router-dom";
 import EditProjects from "../EditProjects";
+import './SingleProjectPage.css'
 
 
 
@@ -55,18 +54,28 @@ const SingleProjectPage = () => {
         <>
 
           <div className='singleProjectWrapper'>
-                <div>
-                    <img src={projects.media_url} alt='alternative' />
+                <p className="indiTitle">{projects.title}</p>
+                <div className="imgContainer">
+                    <img className="mediaUrl" src={projects.media_url} alt='alternative' />
+                    <div className="editProjectBttnContainer">
+                        <div>
+                            {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
+                            {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+                        </div>
+                    </div>
                 </div>
-                <div className='indiTitle'>{projects.title}</div>
-                <div className='indiDescription'>{projects.description}</div>
+                <div className='indiDescription'><h2>{projects.description}</h2></div>
                 {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
+
                 {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
+
 
                 {edit && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
                  <StepsForProject projectsId={projects.id} data={projects.id} />
                 <div>
+
           {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+
     </div>
                 {/* <CreateNewComment /> */}
 

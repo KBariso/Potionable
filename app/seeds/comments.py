@@ -66,6 +66,46 @@ def seed_comments():
         user_id=1,
         project_id=1
     )
+    wolf1= Comment(
+        comment="If I'm not getting any sleep cuz of these dogs, they're not getting any sleep either! It's my turn!!!",
+        user_id=2,
+        project_id=10
+    )
+    wolf2 = Comment(
+        comment="Instructions unclear, I now turn into a chihuahua on a half moon",
+        user_id=3,
+        project_id=10
+    )
+    witcher1 = Comment(
+        comment="WHY DID THIS NOT TURN ME INTO HENRY CAVILL!!!!",
+        user_id=3,
+        project_id=11
+    )
+    witcher2 = Comment(
+        comment="The description literally says it won't turn you into Henry Cavill smh",
+        user_id=1,
+        project_id=11
+    )
+    witcher3 = Comment(
+        comment="I DONT CARE!!! IT SHOULD'VE BEEN MORE EXPLICIT!!!",
+        user_id=3,
+        project_id=11
+    )
+    young1 = Comment(
+        comment="THE GREATEST POTION!!!! IM SO BEAUTIFUL!!!!!",
+        user_id=2,
+        project_id=12
+    )
+    apple1 = Comment(
+        comment="Highly recommend! My husband is obsessed!!",
+        user_id=1,
+        project_id=14
+    )
+    apple2 = Comment(
+        comment="I gave this to a friend and she definitely wants the recipe!",
+        user_id=2,
+        project_id=14
+    )
 
 
 
@@ -82,6 +122,17 @@ def seed_comments():
     db.session.add(truth_comment2)
     db.session.add(forget_comment1)
     db.session.add(forget_comment2)
+    db.session.add(wolf1)
+    db.session.add(wolf2)
+    db.session.add(wolf1)
+    db.session.add(wolf1)
+    db.session.add(witcher1)
+    db.session.add(witcher2)
+    db.session.add(witcher3)
+    db.session.add(young1)
+    db.session.add(apple1)
+    db.session.add(apple2)
+
 
 
     db.session.commit()
