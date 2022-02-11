@@ -30,7 +30,7 @@ const SingleProjectPage = () => {
     const user = useSelector(state => state.session.user)
     const userId= user?.id
 
-    const preSession = selectedProject?.userId
+    const preSession = projects?.user_id
     const sessionId = userId === preSession
 
     useEffect(()=>{
@@ -39,7 +39,7 @@ const SingleProjectPage = () => {
 
     }, [dispatch, projectId])
 
-    console.log('YESYEYSYES', projectId)
+
 
     const handleDelete =  (e) => {
 
@@ -61,20 +61,23 @@ const SingleProjectPage = () => {
                 <div className='indiTitle'>{projects.title}</div>
                 <div className='indiDescription'>{projects.description}</div>
                 {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
-                {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
+                {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
 
                 {edit && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
-                <StepsForProject projectsId={projects.id} data={projects.id} />
+                 <StepsForProject projectsId={projects.id} data={projects.id} />
                 <div>
-          {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+          {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
     </div>
                 {/* <CreateNewComment /> */}
-                <StepForm />
-                <CommentsList />
-                
+                {(sessionId && userId ) && <StepForm />}
+
+                 < CommentsList projectId={projects.id} />
+
+
+
 
                 <StepsForProject />
-                {/* <CreateNewComment /> */}
+               {userId && <CreateNewComment />}
                 {/* <CommentsList/> */}
 
 

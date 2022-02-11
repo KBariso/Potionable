@@ -53,6 +53,7 @@ export const editComment = ({comment_id, comment}) => async (dispatch) => {
     if (res.ok) {
         const updatedComment = await res.json();
         dispatch(updateComment(updatedComment));
+        return updatedComment
       }
 }
 
@@ -87,9 +88,17 @@ const commentsReducer = (state = initialState, action) => {
         case CREATE_ONE_COMMENT:
             return {...state, [action.comment.id]: action.comment}
         case EDIT_ONE_COMMENT:
-            return {...state, [action.comment.id]: action.comment}
+            {
+                return {
+                    ...state,
+                    [action.comment.id]: {
+                      ...state[action.comment.id],
+                      ...action.comment,
+                    }
+                  };
+              }
         case DELETE_ONE_COMMENT:
-            newState = {...state};
+            
             delete newState[action.commentId];
             return newState
         default:

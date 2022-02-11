@@ -65,9 +65,9 @@ function App() {
         <Route path="/projects/:projectId" exact={true}>
           <SingleProjectPage />
         </Route>
-        <Route path="/comments/:commentId/edit">
+        {/* <Route path="/comments/:commentId/edit">
           <EditComment />
-        </Route>
+        </Route> */}
          {/* <Route path="/projects/:projectId/edit">
           <EditProjects />
         </Route> */}
