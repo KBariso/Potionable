@@ -1,14 +1,22 @@
 import React, { useEffect,useState } from "react";
-import { useDispatch} from "react-redux";
+import {useSelector,  useDispatch} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import {editProjects} from "../../store/singleProject"
 import './EditProject.css'
+import {getSingleProject} from "../../store/singleProject"
+
 
 
 const EditProjects = ({projectsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
   const {projectId} = useParams()
+
+  const user = useSelector(state => state.session.user);
+  const userId = user?.id
+
+  const preSession= projectsProp?.user_id
+  const sessionId = userId === preSession
 
       const [title, setTitle] = useState(projectsProp.title);
       const [description, setDescription]= useState(projectsProp.description)
@@ -42,13 +50,15 @@ const EditProjects = ({projectsProp, hideForm}) => {
     };
 
 
-     let updateProject= dispatch(editProjects(updatedPayload));
+     let updateProject= await dispatch(editProjects(updatedPayload));
 
-        hideForm();
-        window.location.reload();
 
-        if (updateProject) {
-            setErrors(updateProject);
+        // window.location.reload();
+
+        if (!updateProject) {
+
+            dispatch(getSingleProject(projectId))
+            hideForm();
         }
 
 
