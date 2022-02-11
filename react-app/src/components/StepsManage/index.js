@@ -30,7 +30,7 @@ const StepsManage = ({stepzId}) => {
     //   });
 
 
-    const preSession= stepzId?.userId
+    const preSession= stepzId?.user_id
     const sessionId = userId === preSession
 
 const handleDelete = (e) => {
@@ -45,7 +45,7 @@ const handleDelete = (e) => {
 
 return (
     <div>
-          {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Step</button>}
+          {(userId && sessionId ) && <button className='deleteButton' onClick={handleDelete}>Delete Step</button>}
     </div>
   );
 

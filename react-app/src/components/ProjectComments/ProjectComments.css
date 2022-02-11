@@ -1,0 +1,55 @@
+.commentsContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* background-color: aqua; */
+}
+
+.commentsHeader {
+    display: flex;
+    justify-content: center;
+
+    /* background-color: blueviolet; */
+}
+
+.allCommentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    min-width: 40%;
+    max-width: 40%;
+}
+
+.singleCommentsContainer {
+    /* background-color: teal; */
+
+
+}
+
+.SingleComment {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+    margin: 7px;
+    border: solid black;
+    border-radius: 5px;
+    padding: 40px;
+    display: block;
+    word-wrap: break-word;
+    overflow: auto;
+    text-align: center;
+
+    /* width: 80% */
+}
+
+.EditandDelete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.editCommentButton {
+    border-radius: 5px;
+}

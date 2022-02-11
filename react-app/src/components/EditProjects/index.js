@@ -1,8 +1,10 @@
 import React, { useEffect,useState } from "react";
-import { useDispatch} from "react-redux";
+import {useSelector,  useDispatch} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import {editProjects} from "../../store/singleProject"
 import './EditProject.css'
+import {getSingleProject} from "../../store/singleProject"
+
 
 
 const EditProjects = ({projectsProp, hideForm}) => {
@@ -10,16 +12,34 @@ const EditProjects = ({projectsProp, hideForm}) => {
   const history = useHistory()
   const {projectId} = useParams()
 
+  const user = useSelector(state => state.session.user);
+  const userId = user?.id
+
+  const preSession= projectsProp?.user_id
+  const sessionId = userId === preSession
+
       const [title, setTitle] = useState(projectsProp.title);
       const [description, setDescription]= useState(projectsProp.description)
       const [media_url, setMedia]= useState(projectsProp.media_url)
       const [errors, setErrors] = useState([]);
     console.log(projectsProp, "ONEPROENRIFNEIFNE")
 
+    useEffect(()=>{
+        const errors = [];
+        if (!title.length) {
+            errors.push("Title on this project!");
+        }
+
+          setErrors(errors);
+        }, [ title]);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors([])
+
+
+
 
     const updatedPayload = {
         projectId,
@@ -30,26 +50,31 @@ const EditProjects = ({projectsProp, hideForm}) => {
     };
 
 
-     let updateProject= dispatch(editProjects(updatedPayload));
+     let updateProject= await dispatch(editProjects(updatedPayload));
 
-        hideForm();
-        window.location.reload();
 
-        // if (updateProject) {
-        //     setErrors(updateProject);
-        // }
+        // window.location.reload();
+
+        if (!updateProject) {
+
+            dispatch(getSingleProject(projectId))
+            hideForm();
+        }
 
 
   };
 
+
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-      {/* <ul>
-        {errors.map((error) => (
-          <li id='errorLi' key={error}>{error}</li>
-         ))}
-                </ul> */}
+      {errors.length > 0 && (
+          <ul className="errors">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
         <textarea
           className="projectInput"
           placeholder={title}
