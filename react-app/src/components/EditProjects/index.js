@@ -16,10 +16,22 @@ const EditProjects = ({projectsProp, hideForm}) => {
       const [errors, setErrors] = useState([]);
     console.log(projectsProp, "ONEPROENRIFNEIFNE")
 
+    useEffect(()=>{
+        const errors = [];
+        if (!title.length) {
+            errors.push("Title on this project!");
+        }
+
+          setErrors(errors);
+        }, [ title]);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors([])
+
+
+
 
     const updatedPayload = {
         projectId,
@@ -35,21 +47,24 @@ const EditProjects = ({projectsProp, hideForm}) => {
         hideForm();
         window.location.reload();
 
-        // if (updateProject) {
-        //     setErrors(updateProject);
-        // }
+        if (updateProject) {
+            setErrors(updateProject);
+        }
 
 
   };
 
+
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-      {/* <ul>
-        {errors.map((error) => (
-          <li id='errorLi' key={error}>{error}</li>
-         ))}
-                </ul> */}
+      {errors.length > 0 && (
+          <ul className="errors">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
         <textarea
           className="projectInput"
           placeholder={title}

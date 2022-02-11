@@ -79,7 +79,7 @@ def seed_projects():
 #     db.session.add(harry_potter)
 #     db.session.add(harry_potter2)
 #     db.session.add(harry_potter3)
-    
+
 
 
     # db.session.add(harry_potter)
@@ -93,7 +93,6 @@ def seed_projects():
     db.session.add(alien_spaceship)
     db.session.add(gandoff)
     db.session.add(ron)
-
 
     db.session.commit()
 
