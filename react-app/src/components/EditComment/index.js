@@ -5,11 +5,13 @@ import { editComment, getAllComments } from "../../store/comments";
 import { NavLink } from "react-router-dom";
 
 
+
 const EditComment = ({info,commentsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
   const commentId = info.id
   // const projectId = commentsProp.project_id
+
   // console.log(commentId, "I AM THE COMMENT ID!!!!!!!!!!")
   // console.log(projectId, "I AM THE PROJECTID!!!!")
   // console.log(commentsProp, "I AM THE COMMENT!!!!")
@@ -21,9 +23,9 @@ const EditComment = ({info,commentsProp, hideForm}) => {
       // const updateComment = (e) => setComment(e.target.value);
 
 
-      useEffect(() => {
-        dispatch(getAllComments());
-    }, [dispatch]);
+    //   useEffect(() => {
+    //     dispatch(getAllComments());
+    // }, [dispatch]);
 
 
 
@@ -47,6 +49,7 @@ const EditComment = ({info,commentsProp, hideForm}) => {
 
     };
 
+
     let updatedComment = await dispatch(editComment(updatedPayload));
 
     if (updatedComment) {
@@ -54,6 +57,7 @@ const EditComment = ({info,commentsProp, hideForm}) => {
         // history.push(`/projects/${projectId}`)
         hideForm()
         // window.location.reload();
+
 
     }
   };

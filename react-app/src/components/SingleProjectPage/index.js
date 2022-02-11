@@ -69,9 +69,11 @@ const SingleProjectPage = () => {
           {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
     </div>
                 {/* <CreateNewComment /> */}
+
                 {(sessionId && userId ) && <StepForm />}
 
                  < CommentsList projectId={projects.id} />
+
 
 
 

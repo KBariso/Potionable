@@ -22,6 +22,7 @@ const CommentsList = ({hideForm, projectId}) => {
   const user = useSelector((state) => state.session.user);
   const userId = user?.id;
 
+
   const comments = useSelector((state) => {
     // console.log(state.comments, "HELLLOOOOO")
    const commentArray =Object.values(state.comments);
@@ -33,12 +34,17 @@ const CommentsList = ({hideForm, projectId}) => {
   });
 
 
+
+  // const comment = useSelector(state => state.comments)
+  // console.log(comment.comment)
+
   return (
     <div className="commentsContainer">
       {/* <CreateNewComment /> */}
       <h1 className="commentsHeader">All comments</h1>
       {comments?.map((comment) => {
         return (
+
           // <div>
           //   {comment.project_id == projectId ? <p>{comment.comment}</p> : null}
           //   {edit && comment.user_id === userId && comment.project_id == projectId ?
@@ -52,6 +58,7 @@ const CommentsList = ({hideForm, projectId}) => {
           <DeleteComment commentId={comment.id} commentUserId={comment.user_id} /> */}
             <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} />
           </>
+
         );
       })}
     </div>
