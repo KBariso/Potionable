@@ -4,20 +4,23 @@ import { useHistory, useParams } from "react-router-dom";
 import { editComment, getAllComments } from "../../store/comments";
 import { NavLink } from "react-router-dom";
 
-const EditComment = ({commentsProp, hideForm}) => {
+
+
+const EditComment = ({info,commentsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
-  const commentId = commentsProp.id
-  const projectId = commentsProp.project_id
+  const commentId = info.id
+  // const projectId = commentsProp.project_id
+
   // console.log(commentId, "I AM THE COMMENT ID!!!!!!!!!!")
   // console.log(projectId, "I AM THE PROJECTID!!!!")
   // console.log(commentsProp, "I AM THE COMMENT!!!!")
 
 
-      const [comment, setComment] = useState(commentsProp.comment);
+      const [comment, setComment] = useState(info.comment);
     //   const [errors, setErrors] = useState([]);
 
-      const updateComment = (e) => setComment(e.target.value);
+      // const updateComment = (e) => setComment(e.target.value);
 
 
     //   useEffect(() => {
@@ -41,20 +44,20 @@ const EditComment = ({commentsProp, hideForm}) => {
     // if (errors.length > 0) return;
 
     const updatedPayload = {
-        comment_id:commentId,
+      comment_id:commentId,
         comment
+
     };
 
 
-    dispatch(editComment(updatedPayload))
-
-
-
     let updatedComment = await dispatch(editComment(updatedPayload));
-    if (!updatedComment) {
-        history.push(`/projects/${projectId}`)
-        hideForm();
-        window.location.reload();
+
+    if (updatedComment) {
+      dispatch(getAllComments())
+        // history.push(`/projects/${projectId}`)
+        hideForm()
+        // window.location.reload();
+
 
     }
   };
@@ -74,7 +77,7 @@ const EditComment = ({commentsProp, hideForm}) => {
           placeholder="Comment"
           type="text"
           value={comment}
-          onChange={updateComment}
+          onChange={(e) => setComment(e.target.value)}
         />
         <button type="submit">Save Changes</button>
       </form>

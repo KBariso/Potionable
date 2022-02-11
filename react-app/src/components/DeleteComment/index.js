@@ -11,10 +11,7 @@ const DeleteComment = ({commentId, commentUserId}) => {
     // console.log(projectId)
     const user = useSelector(state => state.session.user);
     const userId = user?.id
-    const oneComment = useSelector((state) => state.comments);
-    // console.log(oneComment)
-    const commentUser= oneComment[commentId].user_id
-    const commentsProjectId = oneComment[commentId].project_id
+
 
 
     const theCommentId = useSelector((state) => {
@@ -31,19 +28,22 @@ const DeleteComment = ({commentId, commentUserId}) => {
 
 const handleDelete = (e) => {
     e.preventDefault();
-  const deleteInfo =dispatch(deleteComment(commentId))
-  if(deleteInfo && sessionId){
-    history.push("/");
+ dispatch(deleteComment(commentId))
+  // if(deleteInfo && sessionId){
+  //   history.push("/");
   }
 
-}
+
 // (userId === commentUser && commentsProjectId === projectId) &&
 // console.log("HIII")
 return (
+
     <div className='deleteUserComment'>
           {(userId== commentUserId && commentsProjectId == projectId) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
+
     </div>
   );
+}
 
-          }
+
 export default DeleteComment;
