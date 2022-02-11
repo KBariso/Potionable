@@ -239,7 +239,7 @@ def seed_steps():
         body = 'Mix paste into water. Dilute until drinkable',
         project_id = 1
     )
-    wolf1 = Step(
+    wolf4 = Step(
         title = 'Drink',
         body = 'On a full moon, drink the concoction. The second full moon that comes, be far away from loved ones. WARNING: You must drink ALL of it on one go. This is to ensure it enters the body at full potency.',
         project_id = 1

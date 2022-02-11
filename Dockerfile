@@ -4,7 +4,7 @@ WORKDIR /react-app
 COPY react-app/. .
 
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=<Your-REACT_APP_BASE_URL-here>
+ENV REACT_APP_BASE_URL=https://potionable.herokuapp.com/
 # ^ only change we make is here.
 
 # Build our React App
