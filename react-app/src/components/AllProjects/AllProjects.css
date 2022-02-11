@@ -1,0 +1,16 @@
+.potionable-container {
+    /* background-color: blue; */
+    display: inline-grid;
+    padding-left: 20px;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+
+    grid-template-rows: auto;
+    row-gap: 20px;
+
+
+
+}
