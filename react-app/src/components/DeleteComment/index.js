@@ -8,10 +8,11 @@ const DeleteComment = ({commentId, commentUserId}) => {
     const history = useHistory();
     const dispatch= useDispatch()
     const { projectId } = useParams()
-    console.log(projectId)
+    // console.log(projectId)
     const user = useSelector(state => state.session.user);
     const userId = user?.id
     const oneComment = useSelector((state) => state.comments);
+    // console.log(oneComment)
     const commentUser= oneComment[commentId].user_id
     const commentsProjectId = oneComment[commentId].project_id
 
@@ -37,7 +38,7 @@ const handleDelete = (e) => {
 
 }
 // (userId === commentUser && commentsProjectId === projectId) &&
-console.log("HIII")
+// console.log("HIII")
 return (
     <div>
           {(userId== commentUserId && commentsProjectId == projectId) && <button className='deleteButton' onClick={handleDelete}>Delete Comment</button>}
