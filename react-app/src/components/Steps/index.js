@@ -5,7 +5,7 @@ import { getSteps } from "../../store/step";
 import StepsManage from "../StepsManage";
 import "./Steps.css";
 
-const StepsForProject = ({ projectsId }) => {
+const StepsForProject = ({ projectsId, projectUserId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const StepsForProject = ({ projectsId }) => {
     return filtered;
   });
   // const steps = useSelector(state => state.steps);
-  //   console.log("TEST FROM ALL PROJECTS", steps);
+    console.log("TEST FROM ALL PROJECTS", projectUserId );
 
   return (
     <div className="AllSteps">
@@ -36,7 +36,7 @@ const StepsForProject = ({ projectsId }) => {
                         <div className="stepBody">{step.body}</div>
                       </div>
                 {/* </div> */}
-                <StepsManage stepzId={step.id} />
+                <StepsManage stepzId={step.id} projectId={step.project_id} projectUserId ={projectUserId} />
               </div>
             );
           })}
