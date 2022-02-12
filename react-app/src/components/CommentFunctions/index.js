@@ -10,12 +10,18 @@ import DeleteComment from '../DeleteComment';
 
 
 
-const CommentFunctions = ({info, projectId}) => {
+const CommentFunctions = ({info, projectId, userName}) => {
     const dispatch= useDispatch()
     const user = useSelector(state => state.session.user);
     const userId = user?.id
 
-    console.log(info, "THIS IS INDO")
+
+    const username= user?.username
+    const commentId= info.user_id
+
+    console.log(userName, "THIS IS INDO")
+
+    const userComment= username === commentId
 
 
  useEffect(() => {
@@ -37,6 +43,7 @@ dispatch(getAllComments)
   }
 
 }
+console.log(user?.username, "THIS IS INFO")
 
 return (
     <div>
@@ -44,6 +51,8 @@ return (
           {!edit &&
             <p className='pComments'key={info.id}>
               {info.comment}
+              {/* {userComment} */}
+
             </p>}
 
           {( sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}

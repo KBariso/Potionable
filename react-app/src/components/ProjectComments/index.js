@@ -45,10 +45,10 @@ const CommentsList = ({hideForm, projectId}) => {
   return (
     <div className="commentsContainer">
 
-//       <h1 className="commentsHeader">All comments</h1>
+{/* //       <h1 className="commentsHeader">All comments</h1>
 //       <div className="allCommentsContainer">
-//         {comments?.map((comment) => {
-//           return (
+//         {comments?.map((comment) => { */}
+{/* //           return (
 //             <div className="singleCommentsContainer">
 //               {comment.project_id == projectId ? <p className="SingleComment">{comment.comment}</p> : null}
 //               <div className="EditandDelete">
@@ -59,9 +59,9 @@ const CommentsList = ({hideForm, projectId}) => {
 //             </div>
 //           );
 //         })}
-//       </div>
+      // </div> */}
 
-//       <CreateNewComment />
+{/* //       <CreateNewComment /> */}
 
       {/* <CreateNewComment /> */}
       <h1 className="commentsHeader">All comments</h1>
@@ -79,7 +79,7 @@ const CommentsList = ({hideForm, projectId}) => {
           <>
           {/* <EditComment commentsProp={comment}/>
           <DeleteComment commentId={comment.id} commentUserId={comment.user_id} /> */}
-            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} />
+            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} userName={user?.username} />
           </>
 
         );
