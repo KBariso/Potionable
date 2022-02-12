@@ -22,16 +22,16 @@ const EditProjects = ({projectsProp, hideForm}) => {
       const [description, setDescription]= useState(projectsProp.description)
       const [media_url, setMedia]= useState(projectsProp.media_url)
       const [errors, setErrors] = useState([]);
-    console.log(projectsProp, "ONEPROENRIFNEIFNE")
+    // console.log(projectsProp, "ONEPROENRIFNEIFNE")
 
-    useEffect(()=>{
-        const errors = [];
-        if (!title.length) {
-            errors.push("Title on this project!");
-        }
+    // useEffect(()=>{
+    //     const errors = [];
+    //     if (!title.length) {
+    //         errors.push("Title on this project!");
+    //     }
 
-          setErrors(errors);
-        }, [ title]);
+    //       setErrors(errors);
+    //     }, [ title]);
 
 
 
@@ -49,8 +49,24 @@ const EditProjects = ({projectsProp, hideForm}) => {
 
     };
 
+    if (!title) {
+        setErrors(["Did you drink a forgetfulness potion? You have no title!"]);
+      } else if (title.length <= 3) {
+        setErrors(["Your title length is too short"]);
+      }
+      else if (!description) {
+          setErrors(["Did you drink a forgetfulness potion? You have no description!"]);
+        }
+        else if (description.length <= 3) {
+          setErrors(["Your description length is too short"]);
+        } else {
+        setErrors([]);
 
-     let updateProject= await dispatch(editProjects(updatedPayload));
+
+     let updateProject= await dispatch(editProjects(updatedPayload)).catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });;
 
 
         // window.location.reload();
@@ -60,6 +76,7 @@ const EditProjects = ({projectsProp, hideForm}) => {
             dispatch(getSingleProject(projectId))
             hideForm();
         }
+    }
 
 
   };

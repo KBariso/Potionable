@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 
 
+
 const EditComment = ({info,commentsProp, hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory()
@@ -18,7 +19,7 @@ const EditComment = ({info,commentsProp, hideForm}) => {
 
 
       const [comment, setComment] = useState(info.comment);
-    //   const [errors, setErrors] = useState([]);
+      const [errors, setErrors] = useState([]);
 
       // const updateComment = (e) => setComment(e.target.value);
 
@@ -49,8 +50,19 @@ const EditComment = ({info,commentsProp, hideForm}) => {
 
     };
 
+    if (!comment) {
+      setErrors(["Did you drink a forgetfulness potion? You have no comment!"]);
+    } else if (comment.length <= 3) {
+      setErrors(["Your comment length is too short"]);
+    }
+       else {
+      setErrors([]);
 
-    let updatedComment = await dispatch(editComment(updatedPayload));
+
+    let updatedComment = await dispatch(editComment(updatedPayload)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });;
 
     if (updatedComment) {
       dispatch(getAllComments())
@@ -60,18 +72,19 @@ const EditComment = ({info,commentsProp, hideForm}) => {
 
 
     }
+  }
   };
 
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-        {/* {errors.length > 0 && (
+        {errors.length > 0 && (
           <ul className="errors">
             {errors.map((error) => (
               <li key={error}>{error}</li>
             ))}
           </ul>
-        )} */}
+        )}
         <textarea
           className="commentInput"
           placeholder="Comment"
