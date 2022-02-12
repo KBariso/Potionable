@@ -83,38 +83,53 @@ const EditProjects = ({projectsProp, hideForm}) => {
 
 
   return (
-    <div>
-      <form className="form" onSubmit={handleSubmit}>
-      {errors.length > 0 && (
-          <ul className="errors">
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        )}
-        <textarea
-          className="projectInput"
-          placeholder={title}
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-          <textarea
-          className="projectInput"
-          placeholder={description }
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-          <input
-          className="projectInput"
-          placeholder={media_url }
-          type="text"
-          value={media_url}
-          onChange={(e) => setMedia(e.target.value)}
-        />
-        <button type="submit">Save Changes</button>
-      </form>
+    <div className="formContainer">
+      <div>
+        <form className="form" onSubmit={handleSubmit}>
+          {errors.length > 0 && (
+            <ul className="errors">
+                {errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            )}
+            <div className="formInputs">
+              <div>
+                <textarea
+                  className="projectInputTitle"
+                  placeholder={title}
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div>
+                <textarea
+                  className="projectInputDescription"
+                  placeholder={description }
+                  type="text"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
+              <div>
+                <input
+                  className="projectInputMedia"
+                  placeholder={media_url }
+                  type="text"
+                  value={media_url}
+                  onChange={(e) => setMedia(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="SaveProjectChangesContainer">
+              <div>
+                <button className="SaveProjectChanges" type="submit">Save Changes</button>
+              </div>
+            </div>
+        </form>
+      </div>
+
     </div>
   );
 };
