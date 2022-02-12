@@ -31,8 +31,16 @@ const StepForm = () => {
       setErrors(["Did you drink a forgetfulness potion? You have no title!"]);
     } else if (title.length <= 3) {
       setErrors(["Your title length is too short"]);
-    } else {
+    }
+    else if (!body) {
+        setErrors(["Did you drink a forgetfulness potion? You have no description!"]);
+      }
+      else if (body.length <= 3) {
+        setErrors(["Your description length is too short"]);
+      } else {
       setErrors([]);
+
+
 
       return dispatch(createOneStep(payload)).catch(async (res) => {
         const data = await res.json();

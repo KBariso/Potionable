@@ -7,10 +7,17 @@ const Search = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [search, setSearch] = useState('');
+    const [errors, setErrors] = useState([]);
 
 
     const handleSearch = async (e) => {
         e.preventDefault();
+
+        if (!search) {
+            setErrors(["Did you drink a forgetfulness potion? You have no search term!"]);
+
+            } else {
+            setErrors([]);
 
         // alert(search)
         if (search === '') {
@@ -19,6 +26,7 @@ const Search = () => {
             window.location.href = `/?searchKeyword=${search}`;
 
         }
+    }
         // history.push(`/?searchKeyword=${search}`)
     }
 
@@ -26,6 +34,13 @@ const Search = () => {
 
     return (
         <form onSubmit={handleSearch}>
+              {errors.length > 0 && (
+          <ul className="errors">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
             <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's make..." />
         </form>
     )

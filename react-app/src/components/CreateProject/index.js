@@ -13,6 +13,7 @@ const CreateNewProject = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [media, setMedia] = useState("");
+    const [errors, setErrors] = useState([]);
 
     const updateTitle = (e) => setTitle(e.target.value)
     const updateDescription = (e) => setDescription(e.target.value)
@@ -28,15 +29,41 @@ const CreateNewProject = () => {
             media_url:media
         };
 
-        let createdProject = await dispatch(createNewProject(payload));
+
+    if (!title) {
+        setErrors(["Did you drink a forgetfulness potion? You have no title!"]);
+      } else if (title.length <= 3) {
+        setErrors(["Your title length is too short"]);
+      }
+      else if (!description) {
+          setErrors(["Did you drink a forgetfulness potion? You have no description!"]);
+        }
+        else if (description.length <= 3) {
+          setErrors(["Your description length is too short"]);
+        } else {
+        setErrors([]);
+
+        let createdProject = await dispatch(createNewProject(payload)).catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+          });
+
         if (createdProject) {
           history.push(`/`)
         }
+    }
       };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
+            {errors.length > 0 && (
+          <ul className="errors">
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
                 <input
                     className="titleInput"
                     placeholder="Title"

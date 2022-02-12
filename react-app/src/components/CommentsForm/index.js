@@ -17,13 +17,13 @@ const CreateNewComment = () => {
   const updateComment = (e) => setComment(e.target.value);
 
 
-  useEffect(() => {
-    const errors = [];
-    if (!comment.length) {
-      errors.push("Comment on this project!");
-    }
-    setErrors(errors);
-  }, [comment]);
+  // useEffect(() => {
+  //   const errors = [];
+  //   if (!comment.length) {
+  //     errors.push("Comment on this project!");
+  //   }
+  //   setErrors(errors);
+  // }, [comment]);
 
 
   // if (!user) return <Redirect to="/home" />;
@@ -38,10 +38,22 @@ const CreateNewComment = () => {
       project_id:projects,
     };
 
-    let createdComment = await dispatch(createNewComment(payload));
+    if (!comment) {
+      setErrors(["Did you drink a forgetfulness potion? You have no comment!"]);
+    } else if (comment.length <= 3) {
+      setErrors(["Your comment length is too short"]);
+    }
+       else {
+      setErrors([]);
+
+    let createdComment = await dispatch(createNewComment(payload)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });;
     if (createdComment) {
       setComment("")
     }
+  }
   };
 
 
