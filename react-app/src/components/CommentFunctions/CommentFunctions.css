@@ -1,0 +1,30 @@
+.allCommentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    min-width: 40%;
+    max-width: 40%;
+}
+
+
+.commentsContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* background-color: aqua; */
+}
+
+
+.pComments {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+    margin: 7px;
+    border: solid black;
+    border-radius: 5px;
+    padding: 40px;
+    display: block;
+    word-wrap: break-word;
+    overflow: auto;
+    text-align: center;
+}

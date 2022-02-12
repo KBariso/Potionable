@@ -7,6 +7,7 @@ import { getAllComments } from '../../store/comments';
 import EditComment from '../EditComment';
 import {deleteComment} from '../../store/comments'
 import DeleteComment from '../DeleteComment';
+import './CommentFunctions.css'
 
 
 
@@ -39,19 +40,17 @@ dispatch(getAllComments)
 }
 
 return (
-    <div>
-      <div id="hotAir">
-          {!edit &&
-            <p className='pComments'key={info.id}>
-              {info.comment}
-            </p>}
-
+    <div className='allCommentsContainer'>
+      <div className="singleCommentsContainer" id="hotAir">
+        <div>
+            {!edit && <p className='pComments'key={info.id}> {info.comment} </p>}
+        </div>
           {( sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}
           { (sessionId ) &&<button className='editDeleteButton' onClick={handleDelete}>Delete Comment</button>}
           {/* <DeleteComment /> */}
-          <div>
-            {edit && <EditComment info={info} hideForm={() => setEdit(false)} /> }
-            </div>
+        <div>
+          {edit && <EditComment info={info} hideForm={() => setEdit(false)} /> }
+        </div>
             <br />
       </ div>
     </div>

@@ -1,0 +1,45 @@
+.stepsContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: tomato; */
+    width: 40%;
+    height:200px;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border: solid 1px rgb(138, 7, 138)
+}
+
+
+.stepsFormContainer {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+
+
+
+}
+
+.submitNewStep {
+    border-radius: 5px;
+}
+
+
+.stepsTitle {
+    display: flex;
+    /* justify-content: center; */
+    width: 50%;
+    margin: 10px;
+
+
+}
+
+.stepsDetails {
+    display: flex;
+    width: 75%;
+    height: 100%;
+    margin: 10px;
+
+
+
+}

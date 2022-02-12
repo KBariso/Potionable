@@ -45,10 +45,8 @@ const CommentsList = ({hideForm, projectId}) => {
   return (
     <div className="commentsContainer">
 
-//       <h1 className="commentsHeader">All comments</h1>
-//       <div className="allCommentsContainer">
-//         {comments?.map((comment) => {
-//           return (
+
+{/* //           return (
 //             <div className="singleCommentsContainer">
 //               {comment.project_id == projectId ? <p className="SingleComment">{comment.comment}</p> : null}
 //               <div className="EditandDelete">
@@ -59,9 +57,9 @@ const CommentsList = ({hideForm, projectId}) => {
 //             </div>
 //           );
 //         })}
-//       </div>
+//       </div> */}
 
-//       <CreateNewComment />
+     {/* <CreateNewComment /> */}
 
       {/* <CreateNewComment /> */}
       <h1 className="commentsHeader">All comments</h1>

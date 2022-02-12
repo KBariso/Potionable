@@ -1,1 +1,7 @@
 /* TODO Add site wide styles */
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&family=Redressed&display=swap");
+
+
+* {
+    font-family: 'Redressed', cursive;
+}
