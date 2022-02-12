@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createOneStep } from "../../store/step";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import './StepsForm.css'
 
 const StepForm = () => {
 
@@ -42,8 +43,8 @@ const StepForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="stepsFormContainer">
+      <form className="stepsContainer" onSubmit={handleSubmit}>
         {errors.length > 0 && (
           <ul className="errors">
             {errors.map((error) => (
@@ -51,22 +52,21 @@ const StepForm = () => {
             ))}
           </ul>
         )}
-
-        <input
+        <input className="stepsTitle"
           placeholder="Title"
           type="text"
           value={title}
           onChange={updateTitle}
         />
 
-        <textarea
+        <textarea className="stepsDetails"
           placeholder="Step details"
           type="text"
           value={body}
           onChange={updateBody}
         />
 
-        <button type="submit">Add a new step</button>
+        <button className="submitNewStep" type="submit">Add a new step</button>
       </form>
     </div>
   );

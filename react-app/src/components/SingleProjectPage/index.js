@@ -51,7 +51,7 @@ const SingleProjectPage = () => {
 
     return(
 
-        <>
+        <div className="ProjectBackground">
 
           <div className='singleProjectWrapper'>
                 <p className="indiTitle">{projects.title}</p>
@@ -59,22 +59,24 @@ const SingleProjectPage = () => {
                     <img className="mediaUrl" src={projects.media_url} alt='alternative' />
                     <div className="editProjectBttnContainer">
                         <div>
-                            {/* {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>} */}
+
+                            {/* {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>} */}
+                            {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
                             {/* {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>} */}
+                            {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+
                         </div>
                     </div>
                 </div>
                 <div className='indiDescription'><h2>{projects.description}</h2></div>
                 {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
 
-                {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
 
 
                 {(sessionId && edit) && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
                 { <StepsForProject projectsId={projects.id} data={projects.id} projectUserId={projects.user_id} />}
                 <div>
 
-          {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
 
     </div>
                 {/* <CreateNewComment /> */}
@@ -95,7 +97,7 @@ const SingleProjectPage = () => {
 
             </div>
 
-        </>
+        </div>
     )
 }
 

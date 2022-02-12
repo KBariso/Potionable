@@ -46,6 +46,10 @@
     font-size: larger;
     font-weight:bold;
     padding: 3px;
+    color: gold;
+    /* -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: white; */
+    background-color: rgba(0, 0, 0, 0.774);
 }
 
 .stepBody {
@@ -62,5 +66,6 @@
     word-wrap: break-word;
     overflow: auto;
     text-align: center;
+    font-size: 20px;
 
 }

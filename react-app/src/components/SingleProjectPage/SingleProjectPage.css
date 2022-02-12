@@ -1,5 +1,16 @@
-.singleProjectWrapper {
+.ProjectBackground {
+    /* display: flex;
+    flex-direction: column;
+    align-items:center;
+    /* float:right; */
+    /* justify-content: center; */
+    background-image: url('./Images/871025.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 
+    /* height: 100%; */
+    background-attachment:local;
 }
 
 .imgContainer {
@@ -8,10 +19,12 @@
     align-items:center;
     /* float:right; */
     justify-content: center;
-    background-image: url('./Images/stars-background-project.webp');
+    /* background-image: url('./Images/tumblr_poh5fdZAaF1vsr53w_1280.png'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    /* background-color: purple; */
+    padding-top: 10px;
 
 }
 
@@ -47,6 +60,10 @@
     display: flex;
     justify-content: center;
     font-size: 50px;
+    color: gold;
+    /* -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white; */
+
     /* background-color: aqua; */
     /* background-color: royalblue; */
 }
@@ -57,5 +74,8 @@
     /* background-color: plum; */
     padding-bottom: 10px;
     font-size: 20px;
+    color: gold;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white; */
 
 }
