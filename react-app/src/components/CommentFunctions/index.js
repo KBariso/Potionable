@@ -11,12 +11,18 @@ import './CommentFunctions.css'
 
 
 
-const CommentFunctions = ({info, projectId}) => {
+const CommentFunctions = ({info, projectId, userName}) => {
     const dispatch= useDispatch()
     const user = useSelector(state => state.session.user);
     const userId = user?.id
 
-    console.log(info, "THIS IS INDO")
+
+    const username= user?.username
+    const commentId= info.user_id
+
+    console.log(userName, "THIS IS INDO")
+
+    const userComment= username === commentId
 
 
  useEffect(() => {
@@ -38,13 +44,16 @@ dispatch(getAllComments)
   }
 
 }
+console.log(user?.username, "THIS IS INFO")
 
 return (
+
     <div className='allCommentsContainer'>
       <div className="singleCommentsContainer" id="hotAir">
         <div>
             {!edit && <p className='pComments'key={info.id}> {info.comment} </p>}
         </div>
+
           {( sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}
           { (sessionId ) &&<button className='editDeleteButton' onClick={handleDelete}>Delete Comment</button>}
           {/* <DeleteComment /> */}

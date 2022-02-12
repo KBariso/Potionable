@@ -46,20 +46,6 @@ const CommentsList = ({hideForm, projectId}) => {
     <div className="commentsContainer">
 
 
-{/* //           return (
-//             <div className="singleCommentsContainer">
-//               {comment.project_id == projectId ? <p className="SingleComment">{comment.comment}</p> : null}
-//               <div className="EditandDelete">
-//                 {( !edit) && comment.user_id === userId && comment.project_id == projectId ? <button className="editCommentButton" onClick={() => setEdit(!edit)}>Edit Comment</button> : null}
-//                 {edit && comment.user_id === userId && comment.project_id == projectId ? <EditComment commentsProp={comment} hideForm={() => setEdit(false)}/> : null}
-//               <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div> */}
-
-     {/* <CreateNewComment /> */}
 
       {/* <CreateNewComment /> */}
       <h1 className="commentsHeader">All comments</h1>
@@ -77,7 +63,7 @@ const CommentsList = ({hideForm, projectId}) => {
           <>
           {/* <EditComment commentsProp={comment}/>
           <DeleteComment commentId={comment.id} commentUserId={comment.user_id} /> */}
-            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} />
+            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} userName={user?.username} />
           </>
 
         );

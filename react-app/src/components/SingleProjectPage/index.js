@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams} from "react-router-dom";
-import {getSingleProject} from "../../store/singleProject"
+import project, {getSingleProject} from "../../store/singleProject"
 import CreateNewComment from "../CommentsForm";
 import StepsForProject from "../Steps";
 import CommentsList from "../ProjectComments";
@@ -59,10 +59,12 @@ const SingleProjectPage = () => {
                     <img className="mediaUrl" src={projects.media_url} alt='alternative' />
                     <div className="editProjectBttnContainer">
                         <div>
+
                             {/* {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>} */}
                             {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
                             {/* {(userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>} */}
                             {(sessionId && userId ) && <button className='deleteButton' onClick={handleDelete}>Delete Project</button>}
+
                         </div>
                     </div>
                 </div>
@@ -71,8 +73,8 @@ const SingleProjectPage = () => {
 
 
 
-                {edit && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
-                 <StepsForProject projectsId={projects.id} data={projects.id} />
+                {(sessionId && edit) && <EditProjects key={projects.id} projectsProp={projects} hideForm={() => setEdit(false)}/>}
+                { <StepsForProject projectsId={projects.id} data={projects.id} projectUserId={projects.user_id} />}
                 <div>
 
 
@@ -87,7 +89,7 @@ const SingleProjectPage = () => {
 
 
 
-                <StepsForProject />
+                {/* <StepsForProject /> */}
                {userId && <CreateNewComment />}
                 {/* <CommentsList/> */}
 

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import {deleteStep} from '../../store/step'
 
 
-const StepsManage = ({stepzId}) => {
+const StepsManage = ({stepzId, projectId, projectUserId }) => {
     const history = useHistory();
     const dispatch= useDispatch()
     const user = useSelector(state => state.session.user);
@@ -28,24 +28,25 @@ const StepsManage = ({stepzId}) => {
     //     return filtered
 
     //   });
+console.log(projectUserId, "THIS IS ")
 
+    const preSession= projectUserId
 
-    const preSession= stepzId?.user_id
     const sessionId = userId === preSession
 
 const handleDelete = (e) => {
     e.preventDefault();
   const deleteInfo =dispatch(deleteStep(stepzId))
-  if(deleteInfo && sessionId){
-    history.push("/");
-  }
+  // if(deleteInfo && sessionId){
+  //   history.push("/");
+  // }
 
 }
 
 
 return (
     <div>
-          {(userId && sessionId ) && <button className='deleteButton' onClick={handleDelete}>Delete Step</button>}
+          { sessionId &&  <button className='deleteButton' onClick={handleDelete}>Delete Step</button>}
     </div>
   );
 
