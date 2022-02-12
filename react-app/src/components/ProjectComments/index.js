@@ -79,7 +79,7 @@ const CommentsList = ({hideForm, projectId}) => {
           <>
           {/* <EditComment commentsProp={comment}/>
           <DeleteComment commentId={comment.id} commentUserId={comment.user_id} /> */}
-            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} />
+            <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} userName={user?.username} />
           </>
 
         );
