@@ -1,0 +1,43 @@
+.footer {
+  background-color: #eee;
+  position: relative;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin-top: 14px;
+
+    width: 100vw;
+
+  font-weight: 700px;
+  font-size: 14px;
+
+  border-top: 2px solid gray;
+}
+
+.footer-names {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding-bottom: 14px;
+}
+
+.icons {
+  border-top: 1px solid black;
+  padding-top: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.name {
+  padding-top: 6px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.name:hover {
+  cursor: pointer;
+  font-size: 18px;
+}

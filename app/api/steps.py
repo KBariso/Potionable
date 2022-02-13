@@ -38,7 +38,7 @@ def create_step():
 
     print(request.json)
     # return jsonify('hello')
-    print(' CHECK THIS OUT$$$$$$$$$$', request.json)
+    # print(' CHECK THIS OUT$$$$$$$$$$', request.json)
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():

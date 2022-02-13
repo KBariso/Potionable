@@ -3,6 +3,7 @@
     /* Rounds off card: */
     border-radius: 6px;
 
+
     height: 100%;
     width: 100%;
     max-height: 304px;
@@ -21,7 +22,7 @@
 .project-card:hover {
 
         height: 800px !important;
-        width: 800px !important;;
+        width: 800px !important;
 }
 
 

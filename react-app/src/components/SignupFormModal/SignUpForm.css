@@ -78,7 +78,7 @@
     box-shadow: 0px 0px 0px 1px #0087ff;
 }
 
-button {
+.buttonLogin {
     padding: 10px 18px;
     font-size: 15px;
     background: #FFD700;
@@ -89,16 +89,41 @@ button {
     transition: all 0.2s ease;
     margin-top: 15px;
 }
-button:hover {
+
+.buttonLogin button:hover {
     opacity: 0.9;
     color:rgb(0, 0, 0);
     font-weight: bolder;
 }
-button:focus {
+
+.buttonLoginbutton:focus {
     box-shadow: 0px 0px 0px 3px black;
 }
 
 
 body {
     background: #000000;
+}
+
+
+.demoButtonLogin {
+    padding: 10px 18px;
+    font-size: 15px;
+    background: #FFD700;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.demoButtonLogin button:hover {
+    opacity: 0.9;
+    color:rgb(0, 0, 0);
+    font-weight: bolder;
+}
+
+.demoButtonLoginbutton:focus {
+    box-shadow: 0px 0px 0px 3px black;
 }

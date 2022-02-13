@@ -4,6 +4,7 @@ import './ProjectCard.css'
 
 const ProjectCard = ({ project }) => {
   // TODO: Get username for project card
+  console.log(project, 'this is the prop yo')
 
   // console.log(project, 'this is the prop lol') // gives full project details
 
