@@ -17,13 +17,13 @@ const NavBar = () => {
       <>
         <nav>
           <ul className="nav-top-options">
-            <li>
+            {/* <li>
               <NavLink to="/" exact={true} activeClassName="active">
                 <img src="https://res.cloudinary.com/dd9qejhag/image/upload/v1644269348/Potionable/potion-svgrepo-com_1_va7rug.svg" alt="potionable logo"/>
               </NavLink>
-            </li>
-            <li>PLACE HOLDER1</li>
-            <li>PLACE HOLDER2</li>
+            </li> */}
+            {/* <li>PLACE HOLDER1</li>
+            <li>PLACE HOLDER2</li> */}
           </ul>
           <ul className="nav-login-options">
             <li>
@@ -33,18 +33,23 @@ const NavBar = () => {
         </nav>
         <div className="nav-bottom-options">
           <ul className="nav-bottom-left">
-            <li>
+            {/* <li>
               <a href='/'>
                 Logo
               </a>
-            </li>
-            <li className="site-name">Potionable</li>
-            <li>Projects</li>
+            </li> */}
+            <NavLink to="/" exact={true} activeClassName="active">
+              <div></div>
+              <li className="site-name">Potionable</li>
+            </NavLink>
+            {/* <li>Projects</li> */}
           </ul>
           <ul className="nav-bottom-right">
-            <li>
+
+            <li className="publish">
               <NavLink to={`/projects/new`}>Publish</NavLink>
             </li>
+
             <li>
               <Search />
             </li>
@@ -58,12 +63,12 @@ const NavBar = () => {
         <nav>
           <ul className="nav-top-options">
             <li>
-              <a href='/'>
+              {/* <a href='/'>
                 <img src="https://res.cloudinary.com/dd9qejhag/image/upload/v1644269348/Potionable/potion-svgrepo-com_1_va7rug.svg" />
-              </a>
+              </a> */}
             </li>
-            <li>PLACE HOLDER1</li>
-            <li>PLACE HOLDER2</li>
+            {/* <li>PLACE HOLDER1</li>
+            <li>PLACE HOLDER2</li> */}
           </ul>
           <ul className="nav-login-options">
             <li>
@@ -77,15 +82,17 @@ const NavBar = () => {
         <div className="nav-bottom-options">
           <ul className="nav-bottom-left">
             <li>
-              <a href='/'>
+              {/* <a href='/'>
                 Logo
-              </a>
+              </a> */}
             </li>
-            <li className="site-name">Potionable</li>
-            <li>Projects</li>
+            <NavLink to="/" exact={true} activeClassName="active">
+              <li className="site-name">Potionable</li>
+            </NavLink>
+            {/* <li>Projects</li> */}
           </ul>
           <ul className="nav-bottom-right">
-            <li>Publish</li>
+            <li className="publish">Publish</li>
             <li>
               <Search />
             </li>

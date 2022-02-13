@@ -5,8 +5,8 @@ from app.models import User
 user_routes = Blueprint('users', __name__)
 
 
-@user_routes.route('/')
-@login_required   #Decorator to only allow authorized users to access part of your website.
+@user_routes.route('/', methods=['GET'], strict_slashes=False)
+# @login_required   #Decorator to only allow authorized users to access part of your website.
 def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}

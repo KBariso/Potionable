@@ -38,27 +38,53 @@ const AllProjects = () => {
   // });
   // console.log("TEST FROM ALL PROJECTS", projects_two);
 
+
+
+
+
+  const [users, setUsers] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      // console.log(responseData, 'this is the response data')
+      let userMap = {}
+      for (let user of responseData.users) {
+        userMap[user.id] = user
+      }
+      setUsers(userMap);
+    }
+    fetchData();
+  }, []);
+
+
+
   return (
     <div>
       {/* <input value={searchKeyword}  onChange={(e) => setSearchKeyword(e.target.value)}/> */}
+      <div className="image-container">
+
+        {searchKeyword? null : (
+          <>
+          <div className="overlay-container">
+
+          <h1 className="overlay-h1"> Let's start brewing...</h1>
+          <p className="overlay-p">Potionable is a community for people who love to brew potions.
+          <br />
+          Come explore, share, and make your next potion with us!</p>
+          </div>
+          <img src="https://giffiles.alphacoders.com/214/214512.gif" />
+          </>
+
+        )}
+      </div>
       <div className="potionable-container">
         {projects?.map((project) => {
-          return (
-            <ProjectCard project={project} />
-            // <Link key={project.id} to={`/projects/${project.id}`}>
-            //   <p> {project.title} </p>
-            //   <img src={project.media_url} alt="alt" />
-            // </Link>
-          );
+          return <ProjectCard project={project} users={users} />;
         })}
       </div>
-      {/* {projects_two?.map((project) => (
-        <Link key={project.id} to={`/projects/${project.id}`}>
-
-          <p> {project.title} </p>
-          <img src={project.media_url} alt='alt' />
-        </Link>
-      ))} */}
     </div>
   );
 };

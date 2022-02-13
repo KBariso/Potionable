@@ -3,6 +3,7 @@
     /* Rounds off card: */
     border-radius: 6px;
 
+
     height: 100%;
     width: 100%;
     max-height: 304px;
@@ -10,14 +11,22 @@
     padding: 2px;
 
     text-decoration: none;
+    /* text-decoration: none !important; */
 
-    /* background-color: blue; */
+    background-color: #eee;
 
+
+    transition-duration: .5s;
+    box-shadow: 0px 3px 3px  #ffffff54
 }
 
-/* .project-card:hover {
-    background-color: blue;
-} */
+.project-card:hover {
+
+        height: 800px;
+        width: 800px;
+}
+
+
 
 .project-image {
 
@@ -30,11 +39,10 @@
     border-radius: 5px;
 }
 
-.project-subtext {
+.project-subtext,
+.project-subtext:active {
     display: grid;
     grid-template-rows: 25px 25px;
-
-    text-decoration: none;
 
     font-size: 18px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
