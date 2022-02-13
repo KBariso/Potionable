@@ -122,6 +122,16 @@ nav {
     list-style: none;
 }
 
+.nav-bottom-right a {
+    text-decoration: none;
+    color: white  !important;
+    font-size: 50px;
+    text-shadow: 0 1px 4px rgb(0 0 0 / 15%) !important;
+    font-weight: 600px !important;
+    -webkit-text-stroke-width: 1px !important;
+    -webkit-text-stroke-color: black;
+}
+
 .search-bar {
 
 
