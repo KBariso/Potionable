@@ -13,12 +13,6 @@ const Search = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
 
-        if (!search) {
-            setErrors(["Did you drink a forgetfulness potion? You have no search term!"]);
-
-            } else {
-            setErrors([]);
-
         // alert(search)
         if (search === '') {
             window.location.href = `/`
@@ -34,13 +28,8 @@ const Search = () => {
 
     return (
         <form onSubmit={handleSearch}>
-              {errors.length > 0 && (
-          <ul className="errors">
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        )}
+
+
             <input className='search-bar' type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's brew..." />
         </form>
     )
