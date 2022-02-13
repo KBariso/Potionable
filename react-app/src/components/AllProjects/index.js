@@ -38,10 +38,34 @@ const AllProjects = () => {
   // });
   // console.log("TEST FROM ALL PROJECTS", projects_two);
 
+
+
+
+
+  const [users, setUsers] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      // console.log(responseData, 'this is the response data')
+      let userMap = {}
+      for (let user of responseData.users) {
+        userMap[user.id] = user
+      }
+      setUsers(userMap);
+    }
+    fetchData();
+  }, []);
+
+
+
   return (
     <div>
       {/* <input value={searchKeyword}  onChange={(e) => setSearchKeyword(e.target.value)}/> */}
       <div className="image-container">
+
         {searchKeyword? null : (
           <>
           <div className="overlay-container">
@@ -58,7 +82,7 @@ const AllProjects = () => {
       </div>
       <div className="potionable-container">
         {projects?.map((project) => {
-          return <ProjectCard project={project} />;
+          return <ProjectCard project={project} users={users} />;
         })}
       </div>
     </div>

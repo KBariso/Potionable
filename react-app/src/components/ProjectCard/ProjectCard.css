@@ -11,6 +11,7 @@
     padding: 2px;
 
     text-decoration: none;
+    /* text-decoration: none !important; */
 
     background-color: #eee;
 
@@ -21,8 +22,8 @@
 
 .project-card:hover {
 
-        height: 800px !important;
-        width: 800px !important;
+        height: 800px;
+        width: 800px;
 }
 
 
@@ -38,11 +39,10 @@
     border-radius: 5px;
 }
 
-.project-subtext {
+.project-subtext,
+.project-subtext:active {
     display: grid;
     grid-template-rows: 25px 25px;
-
-    text-decoration: none;
 
     font-size: 18px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif

@@ -21,6 +21,11 @@
 
 }
 
+.potionable-container a {
+    text-decoration: none;
+    color: blue;
+}
+
 
 
 .image-container {

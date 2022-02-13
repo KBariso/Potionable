@@ -109,6 +109,10 @@ nav {
 
 
 
+.nav-bottom-left a {
+    text-decoration: none;
+}
+
 .nav-bottom-left li {
     padding-left: 7%;
 }
