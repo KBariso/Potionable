@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { createNewProject } from "../../store/singleProject";
 import './CreateProject.css'
 
@@ -54,6 +54,7 @@ const CreateNewProject = () => {
         }
     }
       };
+      if (!user) return <Redirect to="/" />;
 
     return (
         <>
