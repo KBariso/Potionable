@@ -37,14 +37,14 @@ const CommentFunctions = ({info, projectId, userName}) => {
 const handleDelete = (e) => {
     e.preventDefault();
   const deleteInfo =dispatch(deleteComment(info.id))
-  if (deleteInfo){
-dispatch(getAllComments)
-  window.location.reload();
+//   if (deleteInfo){
+// dispatch(getAllComments)
+//   window.location.reload();
 
-  }
+//   }
 
 }
-console.log(user?.username, "THIS IS INFO")
+// console.log(user?.username, "THIS IS INFO")
 
 return (
 
