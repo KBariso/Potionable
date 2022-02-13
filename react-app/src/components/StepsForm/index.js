@@ -73,8 +73,9 @@ const StepForm = () => {
           value={body}
           onChange={updateBody}
         />
-
-        <button className="submitNewStep" type="submit">Add a new step</button>
+        <div>
+          <button className="submitNewStep" type="submit">Add a new step</button>
+        </div>
       </form>
     </div>
   );

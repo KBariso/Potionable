@@ -58,7 +58,7 @@ const CreateNewComment = () => {
 
 
   return (
-    <div>
+    <div className="CommentsSection">
       <form className="form" onSubmit={handleSubmit}>
         <div className="formContainer">
           {errors.length > 0 && (
@@ -77,10 +77,12 @@ const CreateNewComment = () => {
               onChange={updateComment}
             />
         </div>
-
         </div>
-        <button className="submitCommentBttn" type="submit">Create Comment</button>
-
+        <div className="submitCommentContainer">
+          <div>
+            <button className="submitCommentBttn" type="submit">Create Comment</button>
+          </div>
+        </div>
       </form>
     </div>
   );

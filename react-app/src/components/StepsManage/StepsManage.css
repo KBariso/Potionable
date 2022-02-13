@@ -1,0 +1,12 @@
+.deleteStepContainer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    /* display: block; */
+}
+
+.deleteStepButton {
+    display: flex;
+    margin-top: 0px;
+    /* display: flex inline; */
+}

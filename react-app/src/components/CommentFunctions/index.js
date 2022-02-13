@@ -53,13 +53,15 @@ return (
         <div>
             {!edit && <p className='pComments'key={info.id}> {info.comment} </p>}
         </div>
-
-          {( sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}
-          { (sessionId ) &&<button className='editDeleteButton' onClick={handleDelete}>Delete Comment</button>}
-          {/* <DeleteComment /> */}
-        <div>
+          <div className='EditandDeleteCommentContainer'>
+            <div className='EditandDeleteComment'>
+              {( sessionId && !edit) && <button className='editCommentButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}
+              { (sessionId ) &&<button className='editDeleteButton' onClick={handleDelete}>Delete Comment</button>}
+            </div>
+            {/* <DeleteComment /> */}
+          </div>
           {edit && <EditComment info={info} hideForm={() => setEdit(false)} /> }
-        </div>
+
             <br />
       </ div>
     </div>

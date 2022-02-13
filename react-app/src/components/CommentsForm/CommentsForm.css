@@ -7,6 +7,13 @@
     display: flex;
     justify-content: center;
 }
+
+/* .CommentsSection {
+    display: flex;
+    flex-direction: row;
+} */
+
+
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -33,5 +40,11 @@
     display: flex;
     flex-direction: row;
     align-self: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.submitCommentContainer {
+    display: flex;
     justify-content: center;
 }
