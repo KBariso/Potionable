@@ -92,7 +92,7 @@ const NavBar = () => {
             {/* <li>Projects</li> */}
           </ul>
           <ul className="nav-bottom-right">
-            <li className="publish">Publish</li>
+            {/* <li className="publish">Publish</li> */}
             <li>
               <Search />
             </li>
