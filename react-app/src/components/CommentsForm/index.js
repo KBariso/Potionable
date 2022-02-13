@@ -30,7 +30,7 @@ const CreateNewComment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (errors.length > 0) return;
+    // if (errors.length > 0) return;
 
     const payload = {
       user_id:userId,
@@ -43,7 +43,7 @@ const CreateNewComment = () => {
     } else if (comment.length <= 3) {
       setErrors(["Your comment length is too short"]);
     }
-       else {
+    else {
       setErrors([]);
 
     let createdComment = await dispatch(createNewComment(payload)).catch(async (res) => {
