@@ -42,11 +42,14 @@ const StepForm = () => {
 
 
 
-      return dispatch(createOneStep(payload)).catch(async (res) => {
+      let createdStep = await dispatch(createOneStep(payload)).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-
+      if (createdStep) {
+        setTitle("")
+        setBody("")
+      }
     }
   };
 
