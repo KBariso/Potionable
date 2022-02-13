@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { createNewProject } from "../../store/singleProject";
+import './CreateProject.css'
 
 const CreateNewProject = () => {
     const dispatch = useDispatch();
@@ -53,10 +54,13 @@ const CreateNewProject = () => {
         }
     }
       };
+      if (!user) return <Redirect to="/" />;
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <>
+        <div className='newProjectTitle'>CREATE A NEW POTION</div>
+
+            <form  className='newProjectsForm'onSubmit={handleSubmit}>
             {errors.length > 0 && (
           <ul className="errors">
             {errors.map((error) => (
@@ -64,31 +68,40 @@ const CreateNewProject = () => {
             ))}
           </ul>
         )}
+         <div className="newProjectsinput-parent">
                 <input
-                    className="titleInput"
+                className='newProjectsinputLogin'
+
                     placeholder="Title"
                     type="text"
                     value={title}
                     onChange={updateTitle}
                 />
+                </div>
+                 <div className="input-parent">
                 <textarea
-                    className="titleInput"
+                    className='newTextArea'
                     placeholder="Description"
                     type="text"
                     value={description}
                     onChange={updateDescription}
                 />
+                </div>
+                 <div className="newProjectsinput-parent">
                 <input
-                    className="mediaInput"
+
+                className='newProjectsinputLogin'
                     placeholder="Media"
                     type="text"
                     value={media}
                     onChange={updateMedia}
                 />
-                <button type="submit">New Project</button>
+                </div>
+                <button  className='buttonLogin'type="submit">Create New Potion</button>
             </form>
+            </>
 
-        </div>
+
     )
 }
 

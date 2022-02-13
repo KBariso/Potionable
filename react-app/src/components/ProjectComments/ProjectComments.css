@@ -5,11 +5,29 @@
     /* background-color: aqua; */
 }
 
+.commentsHeaderContainer {
+    display:flex;
+    justify-content: center;
+
+}
+
+.linebreak {
+    margin-top: 15px;
+    display: flex;
+    width: 80%;
+    align-self: center;
+    border-color:goldenrod;
+    border-width: 5px;
+}
+
 .commentsHeader {
     display: flex;
     justify-content: center;
+    color: gold;
+    margin-top: 15px;
+    text-decoration: solid 2px underline gold;
+    background-color: rgba(0, 0, 0, 0.774);
 
-    /* background-color: blueviolet; */
 }
 
 .allCommentsContainer {
@@ -18,12 +36,6 @@
     align-self: center;
     min-width: 40%;
     max-width: 40%;
-}
-
-.singleCommentsContainer {
-    /* background-color: teal; */
-
-
 }
 
 .SingleComment {
@@ -42,13 +54,6 @@
     /* width: 80% */
 }
 
-.EditandDelete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 .editCommentButton {
     border-radius: 5px;

@@ -7,7 +7,7 @@
     height:200px;
     margin-top: 15px;
     padding-bottom: 5px;
-    border: solid 1px rgb(138, 7, 138)
+    border: solid 1px rgb(230, 230, 230);
 }
 
 
@@ -22,6 +22,7 @@
 
 .submitNewStep {
     border-radius: 5px;
+    margin-top: 0px;
 }
 
 
