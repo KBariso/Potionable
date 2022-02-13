@@ -11,13 +11,20 @@
 
     text-decoration: none;
 
-    /* background-color: blue; */
+    background-color: #eee;
 
+
+    transition-duration: .5s;
+    box-shadow: 0px 3px 3px  #ffffff54
 }
 
-/* .project-card:hover {
-    background-color: blue;
-} */
+.project-card:hover {
+
+        height: 800px !important;
+        width: 800px !important;;
+}
+
+
 
 .project-image {
 

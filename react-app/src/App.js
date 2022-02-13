@@ -14,6 +14,7 @@ import CreateNewComment from './components/CommentsForm';
 import CommentsList from './components/ProjectComments';
 import StepsForProject from './components/Steps'
 import AllProjects from './components/AllProjects';
+import Footer from './components/Footer';
 import { authenticate } from './store/session';
 import EditComment from './components/EditComment';
 // import EditProjects from './components/EditProjects';
@@ -40,6 +41,7 @@ function App() {
       <Switch>
         <Route path='/' exact={true} >
           <AllProjects />
+          <Footer />
         </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
