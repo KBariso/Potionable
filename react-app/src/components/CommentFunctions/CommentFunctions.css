@@ -1,3 +1,9 @@
+/* .CommentsSection {
+    display: flex;
+    flex-direction: row;
+} */
+
+
 .allCommentsContainer {
     display: flex;
     flex-direction: column;
@@ -7,20 +13,40 @@
 }
 
 
-.commentsContainer {
+.singleCommentsContainer {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     /* background-color: aqua; */
 }
 
+.EditandDeleteCommentContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.EditandDeleteComment {
+    display: flex;
+}
+
+.editCommentButton {
+    margin-top: 0px;
+    margin-right: 10px;
+}
+
+.editDeleteButton {
+    margin-top: 0px;
+    margin-left: 10px;
+}
 
 .pComments {
     display: flex;
     justify-content: center;
     background-color: rgb(230, 230, 230);
     margin: 7px;
-    border: solid black;
+    border: solid gold;
     border-radius: 5px;
     padding: 40px;
     display: block;

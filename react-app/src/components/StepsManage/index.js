@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 import {deleteStep} from '../../store/step'
+import './StepsManage.css'
 
 
 const StepsManage = ({stepzId, projectId, projectUserId }) => {
@@ -45,8 +46,10 @@ const handleDelete = (e) => {
 
 
 return (
-    <div>
-          { sessionId &&  <button className='deleteButton' onClick={handleDelete}>Delete Step</button>}
+    <div className='deleteStepContainer'>
+      <div>
+        { sessionId &&  <button className='deleteStepButton' onClick={handleDelete}>Delete Step</button>}
+      </div>
     </div>
   );
 

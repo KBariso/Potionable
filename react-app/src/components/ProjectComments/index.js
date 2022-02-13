@@ -48,7 +48,10 @@ const CommentsList = ({hideForm, projectId}) => {
 
 
       {/* <CreateNewComment /> */}
-      <h1 className="commentsHeader">All comments</h1>
+      <hr className="linebreak"/>
+      <div className="commentsHeaderContainer">
+        <h1 className="commentsHeader">All comments</h1>
+      </div>
       {comments?.map((comment) => {
         return (
 

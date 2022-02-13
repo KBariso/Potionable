@@ -41,7 +41,7 @@ const Search = () => {
             ))}
           </ul>
         )}
-            <input type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's make..." />
+            <input className='search-bar' type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's brew..." />
         </form>
     )
 }

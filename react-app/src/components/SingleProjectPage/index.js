@@ -58,7 +58,7 @@ const SingleProjectPage = () => {
                 <div className="imgContainer">
                     <img className="mediaUrl" src={projects.media_url} alt='alternative' />
                     <div className="editProjectBttnContainer">
-                        <div>
+                        <div className="EditandDelete">
 
                             {/* {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>} */}
                             {(sessionId && !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Project</button>}
@@ -68,7 +68,10 @@ const SingleProjectPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className='indiDescription'><h2>{projects.description}</h2></div>
+                <div className='indiDescriptionContainer'>
+
+                    <div className='indiDescription'><h2>{projects.description}</h2></div>
+                </div>
                 {/* <NavLink to={`/projects/${projects.id}/edit`} projectsProp={projects.title}>Edit</NavLink> */}
 
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editComment, getAllComments } from "../../store/comments";
 import { NavLink } from "react-router-dom";
+import './EditComment.css'
 
 
 
@@ -85,13 +86,17 @@ const EditComment = ({info,commentsProp, hideForm}) => {
             ))}
           </ul>
         )}
-        <textarea
-          className="commentInput"
-          placeholder="Comment"
-          type="text"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
+        <div className="EditCommentInput">
+          <div>
+            <textarea
+              className="commentEditInput"
+              placeholder="Comment"
+              type="text"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+          </div>
+        </div>
         <button type="submit">Save Changes</button>
       </form>
     </div>
