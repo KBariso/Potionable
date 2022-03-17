@@ -1,9 +1,11 @@
 .EditCommentInput {
     display: flex;
     justify-content: center;
+
 }
 
 .commentEditInput {
     width: 700px;
-    height: 100px
+    height: 100px;
+    font-size: x-large;
 }

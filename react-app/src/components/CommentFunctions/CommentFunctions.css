@@ -54,3 +54,7 @@
     overflow: auto;
     text-align: center;
 }
+
+p.pComments {
+    font-size: larger;
+}
