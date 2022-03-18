@@ -4,13 +4,19 @@
     align-items:center;
     /* float:right; */
     /* justify-content: center; */
-    background-image: url('./Images/871025.webp');
+
+
+    background-image: url('./Images/cMoonGood.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
+    background-size:100%;
+    /* background-position: ; */
 
     /* height: 100%; */
     background-attachment:local;
+
+    /* background: linear-gradient(100deg,#FFFFFF,#E3F6F5,#BAE8E8);
+    background-size: 180% 180%;
+    animation: gradient-animation 9s ease infinite; */
 }
 
 .imgContainer {
@@ -33,6 +39,8 @@
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    height: 500px;
+    width: 500px;
 }
 
 .EditandDelete {

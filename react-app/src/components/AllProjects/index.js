@@ -62,8 +62,8 @@ const AllProjects = () => {
 
 
   return (
-    <div>
-      {/* <input value={searchKeyword}  onChange={(e) => setSearchKeyword(e.target.value)}/> */}
+    <div className='divWrapperMainPage'>
+      <input value={searchKeyword}  onChange={(e) => setSearchKeyword(e.target.value)}/>
       <div className="image-container">
 
         {searchKeyword? null : (
