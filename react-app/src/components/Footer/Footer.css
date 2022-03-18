@@ -1,18 +1,19 @@
 .footer {
-  background-color: #eee;
+  background: inherit;
   position: relative;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 14px;
+ padding-top: 14px;
 
     width: 100vw;
 
   font-weight: 700px;
   font-size: 14px;
 
-  border-top: 2px solid gray;
+
 }
+
 
 .footer-names {
   display: flex;

@@ -54,7 +54,7 @@ const CommentsList = ({hideForm, projectId}) => {
 
 
       {/* <CreateNewComment /> */}
-      <hr className="linebreak"/>
+      {/* <hr className="linebreak"/> */}
       <div className="commentsHeaderContainer">
         <h1 className="commentsHeader">All comments</h1>
       </div>
