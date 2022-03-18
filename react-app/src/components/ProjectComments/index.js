@@ -37,12 +37,18 @@ const CommentsList = ({hideForm, projectId}) => {
    }
   });
 
-
-
   // const comment = useSelector(state => state.comments)
   // console.log(comment.comment)
 
-  return (
+  let sessionLinks;
+
+  if (comments.length === 0) {
+    sessionLinks = (
+      <>
+      </>
+    )
+  } else {
+    sessionLinks = (
     <div className="commentsContainer">
 
 
@@ -54,25 +60,16 @@ const CommentsList = ({hideForm, projectId}) => {
       </div>
       {comments?.map((comment) => {
         return (
-
-          // <div>
-          //   {comment.project_id == projectId ? <p>{comment.comment}</p> : null}
-          //   {edit && comment.user_id === userId && comment.project_id == projectId ?
-          //        <EditComment commentsProp={comment} hideForm={() => setEdit(false)}/> : null}
-          //   {/* <EditComment commentsProp={comment}/> */}
-            // <DeleteComment commentId={comment.id} commentUserId={comment.user_id} />
-          //   {( !edit) && <button className='editProjectButton' onClick={() => setEdit(!edit)}>Edit Comment</button>}
-          // </div>
           <>
-          {/* <EditComment commentsProp={comment}/>
-          <DeleteComment commentId={comment.id} commentUserId={comment.user_id} /> */}
             <CommentFunctions key={comment.id} info={comment} projectId={comment.project_id} userName={user?.username} />
           </>
-
         );
       })}
-
     </div>
+    )
+  }
+  return (
+    <>{sessionLinks}</>
   );
 };
 

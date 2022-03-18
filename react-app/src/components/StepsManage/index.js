@@ -1,8 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 // import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
-import {deleteStep} from '../../store/step'
+import { Modal } from '../../context/Modal';
+
+
 import './StepsManage.css'
+import DeleteStepModal from '../DeleteStepModal';
 
 
 const StepsManage = ({stepzId, projectId, projectUserId }) => {
@@ -11,6 +15,10 @@ const StepsManage = ({stepzId, projectId, projectUserId }) => {
     const user = useSelector(state => state.session.user);
     const userId = user?.id
     // const {stepId}= useParams()
+
+
+    const [showModal, setShowModal] = useState(false);
+
 
     const stepId = useSelector((state) => {
        const stepsArray= Object.values(state.steps);
@@ -35,23 +43,28 @@ console.log(projectUserId, "THIS IS ")
 
     const sessionId = userId === preSession
 
-const handleDelete = (e) => {
-    e.preventDefault();
-  const deleteInfo =dispatch(deleteStep(stepzId))
-  // if(deleteInfo && sessionId){
-  //   history.push("/");
-  // }
+// const handleDelete = (e) => {
+//     e.preventDefault();
+//   const deleteInfo =dispatch(deleteStep(stepzId))
+//   // if(deleteInfo && sessionId){
+//   //   history.push("/");
+//   // }
 
-}
+// }
 
 
 return (
     <div className='deleteStepContainer'>
       <div>
-        { sessionId &&  <button className='deleteStepButton' onClick={handleDelete}>Delete Step</button>}
+        { sessionId &&  <button className='deleteStepButton' onClick={() => setShowModal(true)}>Delete Step</button>}
+        {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <DeleteStepModal stepsProp={stepId}/>
+        </Modal>
+      )}
       </div>
     </div>
   );
 
-          }
+        }
 export default StepsManage;

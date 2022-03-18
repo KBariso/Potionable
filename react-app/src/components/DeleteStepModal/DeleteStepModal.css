@@ -1,0 +1,13 @@
+.DeleteOneStepFromModalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    background: #151414;
+}
+
+.DeleteOneStepFromModal {
+    display:flex;
+    justify-content: center;
+
+}
