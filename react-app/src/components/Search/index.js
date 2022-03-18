@@ -22,7 +22,7 @@ const Search = () => {
         }
     }
         // history.push(`/?searchKeyword=${search}`)
-    
+
 
 
 

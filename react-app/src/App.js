@@ -75,6 +75,9 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
+        <Route>
+            <h1 style={{color:"white"}}>You're lost! This page has nothing.</h1>
+          </Route>
       </Switch>
       <Footer />
     </BrowserRouter>
