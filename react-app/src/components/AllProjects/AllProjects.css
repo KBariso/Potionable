@@ -5,9 +5,10 @@
 }
 
 .potionable-container {
-    background: linear-gradient(100deg,#FFFFFF,#E3F6F5,#BAE8E8);
+    /* background: linear-gradient(100deg,#FFFFFF,#E3F6F5,#BAE8E8);
   background-size: 180% 180%;
-  animation: gradient-animation 9s ease infinite;
+  animation: gradient-animation 9s ease infinite; */
+  background-color: whitesmoke;
     display: inline-grid;
     padding-left: 10px;
     padding-right: 10px;
