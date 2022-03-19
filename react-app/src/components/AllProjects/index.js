@@ -18,9 +18,10 @@ const AllProjects = () => {
     if (res.ok ) {
       const result = await res.json();
       setProjects(result);
-    } else {
-      alert("error");
     }
+    // else {
+    //   alert("error");
+    // }
   };
 
   useEffect(() => {
