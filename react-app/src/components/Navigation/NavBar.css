@@ -52,13 +52,15 @@ nav {
     border-radius: 4px;
     padding: 2px 10px;
     cursor: pointer;
+    margin-top: 40px;
+    margin-right: 30px;
 
 }
 
 .nav-login-options button:hover {
     background-color: rgb(0, 0, 0);
     color: whitesmoke;
-   
+
     font-size: 18px;
     border-radius: 4px;
     padding: 2px 10px;
@@ -75,7 +77,7 @@ nav {
     /* font-size: 22px; */
 
     font-size: 30px;
-    border-bottom: 1px solid #ffd700
+    /* border-bottom: 1px solid #ffd700 */
 
 }
 
