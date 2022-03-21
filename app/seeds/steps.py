@@ -358,7 +358,66 @@ def seed_steps():
         body = 'Give to someone to certainly cast them into a spell that will light their tastebuds!',
         project_id = 14
     )
-
+    issac1= Step(
+     title = 'The Worms',
+     body = 'Go out to the yard and digg up some local worms!',
+     project_id = 6
+    )
+    issac2= Step(
+     title = 'The hole',
+     body = 'Go out to the yard and dig a hole!',
+     project_id = 6
+    )
+    issac3= Step(
+     title = 'The generator',
+     body = 'Spin the worms inside the hole that you dug nearing as close as you can to the speed of light. Once the worms are moving fast enough, add olive oil and boom, you have got your self a worm hole!',
+     project_id = 6
+    )
+    eleusinian1= Step(
+     title = 'The grapes',
+     body = 'Go find some grapes, any grapes will do!',
+     project_id = 7
+    )
+    eleusinian2= Step(
+     title = 'The location',
+     body = 'You must be in greece!',
+     project_id = 7
+    )
+    eleusinian3= Step(
+     title = 'The special sauce',
+     body = 'Ferment the grapes over a 6 month period. Once fermented, do all of the usual wine processing stuff. Then, add the special sauce!',
+     project_id = 7
+    )
+    potion1= Step(
+     title = 'The location',
+     body = 'Go to the location of Area 51!',
+     project_id = 8
+    )
+    potion2= Step(
+     title = 'Alien room',
+     body = 'Once you are at Area 51, find the alien room!',
+     project_id = 8
+    )
+    potion3= Step(
+     title = 'Final step',
+     body = 'Once in the alien room, take the potion from the alien!',
+     project_id = 8
+    )
+    gandalf1= Step(
+     title = 'The brisket',
+     body = 'Go to the store and buy some brisket!',
+     project_id = 9
+    )
+    gandalf2= Step(
+     title = 'Step 2',
+     body = 'Put the brisket in the oven!',
+     project_id = 9
+    )
+    gandalf3= Step(
+     title = 'Special step',
+     body = 'Read to the hobbits while the brisket cooks. The laughter from the hobbits will seep into the brisket and give it a unique flavor!',
+     project_id = 9
+    )
 
 
 
@@ -367,6 +426,18 @@ def seed_steps():
     # db.session.add(hp1)
     # db.session.add(hp2)
     # db.session.add(hp3)
+    db.session.add(issac1)
+    db.session.add(issac2)
+    db.session.add(issac3)
+    db.session.add(eleusinian1)
+    db.session.add(eleusinian2)
+    db.session.add(eleusinian3)
+    db.session.add(potion1)
+    db.session.add(potion2)
+    db.session.add(potion3)
+    db.session.add(gandalf1)
+    db.session.add(gandalf2)
+    db.session.add(gandalf3)
     db.session.add(beauty1)
     db.session.add(beauty2)
     db.session.add(beauty3)
