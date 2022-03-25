@@ -9,11 +9,14 @@ nav {
     color: #fff;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    column-gap: 30%;
+    /* column-gap: 30%; */
     height: 38px;
     padding: 5px 15px 5px 10px;
     min-height: 28px;
     font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+
     /* line-height: 20px; */
 
     /* font-family: "myriad-pro", Helvetica, Arial, sans-serif; */
@@ -53,8 +56,12 @@ nav {
     padding: 2px 10px;
     cursor: pointer;
     margin-top: 40px;
-    margin-right: 30px;
+    /* margin-right: 30px; */
 
+}
+
+.logoutButtonMarch24{
+    margin-bottom: 20px;
 }
 
 .nav-login-options button:hover {
@@ -75,6 +82,7 @@ nav {
     grid-template-columns: 3fr 1fr;
     align-items: center;
     /* font-size: 22px; */
+    list-style: none;
 
     font-size: 30px;
     /* border-bottom: 1px solid #ffd700 */
@@ -116,14 +124,26 @@ nav {
     font-size: 50px;
     text-shadow: 0 1px 4px rgb(0 0 0 / 15%) !important;
     font-weight: 600px !important;
-    -webkit-text-stroke-width: 1px !important;
-    -webkit-text-stroke-color: black;
+
+    margin-bottom: 50px;
+    margin-left: 45% ;
+    list-style: none;
+    text-decoration: none!important;
 }
 
+.logOutButtontest{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    width:50px;
+    cursor: pointer;
+
+}
 
 
 .nav-bottom-left a {
     text-decoration: none;
+    list-style: none;
 }
 
 .nav-bottom-left li {
@@ -131,8 +151,10 @@ nav {
 }
 
 .nav-bottom-right {
-    display: flex;
+    /* display: flex; */
     list-style: none;
+    margin-bottom: 0px;
+
 }
 
 .nav-bottom-right a {
@@ -143,6 +165,7 @@ nav {
     font-weight: 600px !important;
     -webkit-text-stroke-width: 1px !important;
     -webkit-text-stroke-color: black;
+    list-style: none;
 }
 
 .search-bar {
