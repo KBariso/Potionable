@@ -1,5 +1,5 @@
 .footer {
-  background-color: whitesmoke;
+  background-color: #e3e3e3;
   /* position: absolute; */
   /* margin-top: 99%;
   bottom: 0;
@@ -7,12 +7,12 @@
   right: 0; */
  padding-top: 14px;
 
-    width: 100vw;
+    /* width: 100vw; */
 
   font-weight: 700px;
   font-size: 14px;
 
-
+ border-top: 1px solid rgba(0, 0, 0, 0.322);
 }
 
 
