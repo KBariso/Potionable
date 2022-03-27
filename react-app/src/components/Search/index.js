@@ -27,11 +27,12 @@ const Search = () => {
 
 
     return (
-        <form onSubmit={handleSearch}>
+        // <form onSubmit={handleSearch}>
 
 
-            <input className='search-bar' type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's brew..." />
-        </form>
+        //     <input className='search-bar' type='text' value={search} onChange={(e) => setSearch(e.target.value)}  placeholder="Let's brew..." />
+        // </form>
+        <></>
     )
 }
 
