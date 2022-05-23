@@ -107,9 +107,8 @@ nav {
 }
 
 .site-name {
-
     color: white  !important;
-    font-size: 50px;
+    font-size: 75px;
     text-shadow: 0 1px 4px rgb(0 0 0 / 15%) !important;
     font-weight: 600px !important;
     -webkit-text-stroke-width: 1px !important;
@@ -124,9 +123,8 @@ nav {
     font-size: 50px;
     text-shadow: 0 1px 4px rgb(0 0 0 / 15%) !important;
     font-weight: 600px !important;
-
     margin-bottom: 50px;
-    margin-left: 45% ;
+    /* margin-left: 50% ; */
     list-style: none;
     text-decoration: none!important;
 }
